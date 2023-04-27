@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{np}\PYG{o}{.}\PYG{n}{linalg}\PYG{o}{.}\PYG{n}{matrix\PYGZus{}power}\PYG{p}{(}\PYG{n}{D}\PYG{p}{,} \PYG{n}{p}\PYG{p}{)}
+\end{Verbatim}

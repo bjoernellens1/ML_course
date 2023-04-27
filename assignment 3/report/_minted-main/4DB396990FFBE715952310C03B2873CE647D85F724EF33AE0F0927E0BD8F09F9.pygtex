@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{k}{with} \PYG{n+nb}{open}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}data.csv\PYGZsq{}}\PYG{p}{,} \PYG{n}{newline}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}\PYGZsq{}}\PYG{p}{)} \PYG{k}{as} \PYG{n}{f}\PYG{p}{:}
+    \PYG{n}{reader} \PYG{o}{=} \PYG{n}{csv}\PYG{o}{.}\PYG{n}{reader}\PYG{p}{(}\PYG{n}{f}\PYG{p}{)}
+    \PYG{n}{data} \PYG{o}{=} \PYG{p}{[]}
+    \PYG{k}{for} \PYG{n}{row} \PYG{o+ow}{in} \PYG{n}{reader}\PYG{p}{:}
+      \PYG{n}{data}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}, \PYGZsq{}}\PYG{o}{.}\PYG{n}{join}\PYG{p}{(}\PYG{n}{row}\PYG{p}{))}
+\end{Verbatim}
