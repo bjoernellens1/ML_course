@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.4.27)  27 APR 2023 16:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.4.27)  27 APR 2023 16:36
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1615,31 +1615,31 @@ Underfull \hbox (badness 3068) in paragraph at lines 111--112
 \openout4 = `main.pyg'.
 
 (/workspaces/ML_course/assignment 3/report/_minted-main/717DFED838C7A8F2D555E7D031F87491647D85F724EF33AE0F0927E0BD8F09F9.pygtex)
-<../gaussian1D.png, id=51, 814.4829pt x 375.0813pt>
-File: ../gaussian1D.png Graphic file (type png)
-<use ../gaussian1D.png>
-Package pdftex.def Info: ../gaussian1D.png  used on input line 129.
-(pdftex.def)             Requested size: 231.88997pt x 106.7848pt.
+<../gaussian1D.pdf, id=51, 814.92253pt x 375.16461pt>
+File: ../gaussian1D.pdf Graphic file (type pdf)
+<use ../gaussian1D.pdf>
+Package pdftex.def Info: ../gaussian1D.pdf  used on input line 129.
+(pdftex.def)             Requested size: 231.88997pt x 106.75128pt.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
 (Font)              scaled to size 10.0pt on input line 131.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
 (Font)              scaled to size 10.0pt on input line 131.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
 (Font)              scaled to size 10.0pt on input line 131.
-<../gaussian2D_contour.png, id=53, 427.1157pt x 454.5783pt>
-File: ../gaussian2D_contour.png Graphic file (type png)
-<use ../gaussian2D_contour.png>
-Package pdftex.def Info: ../gaussian2D_contour.png  used on input line 137.
-(pdftex.def)             Requested size: 231.88997pt x 246.80038pt.
-<../gaussian3D.png, id=54, 583.9416pt x 290.5254pt>
-File: ../gaussian3D.png Graphic file (type png)
-<use ../gaussian3D.png>
-Package pdftex.def Info: ../gaussian3D.png  used on input line 145.
-(pdftex.def)             Requested size: 231.88997pt x 115.37025pt.
+<../gaussian2D_contour.pdf, id=52, 429.08003pt x 455.36723pt>
+File: ../gaussian2D_contour.pdf Graphic file (type pdf)
+<use ../gaussian2D_contour.pdf>
+Package pdftex.def Info: ../gaussian2D_contour.pdf  used on input line 137.
+(pdftex.def)             Requested size: 231.88997pt x 246.09615pt.
+<../gaussian3D.pdf, id=53, 584.02995pt x 291.72588pt>
+File: ../gaussian3D.pdf Graphic file (type pdf)
+<use ../gaussian3D.pdf>
+Package pdftex.def Info: ../gaussian3D.pdf  used on input line 145.
+(pdftex.def)             Requested size: 231.88997pt x 115.82916pt.
 \openout5 = `main.pyg'.
 
  (/workspaces/ML_course/assignment 3/report/_minted-main/D8497ABDC7471F08F6E9A3F54430B8AE4FBEEAFC55D0059826E664B9BBCF3721.pygtex)
-Underfull \vbox (badness 3679) has occurred while \output is active []
+Underfull \vbox (badness 3815) has occurred while \output is active []
 
 
 
@@ -1648,7 +1648,7 @@ Make it at least 13.59999pt.
 We now make it that large for the rest of the document.
 This may cause the page layout to be inconsistent, however.
 
-[2 <../gaussian1D.png> <../gaussian2D_contour.png>]
+[2 <../gaussian1D.pdf> <../gaussian2D_contour.pdf>]
 \openout5 = `main.pyg'.
 
  (/workspaces/ML_course/assignment 3/report/_minted-main/3A548EA1D6AE2732CF52E68A3610A2564FBEEAFC55D0059826E664B9BBCF3721.pygtex)
@@ -1661,14 +1661,14 @@ This may cause the page layout to be inconsistent, however.
 \openout4 = `main.pyg'.
 
  (/workspaces/ML_course/assignment 3/report/_minted-main/B71776FD657BF8CA92432C141F1FAE09647D85F724EF33AE0F0927E0BD8F09F9.pygtex)
-<../beta.png, id=74, 814.4829pt x 375.0813pt>
-File: ../beta.png Graphic file (type png)
-<use ../beta.png>
-Package pdftex.def Info: ../beta.png  used on input line 176.
-(pdftex.def)             Requested size: 231.88997pt x 106.7848pt.
+<../beta.pdf, id=115, 814.92253pt x 375.16461pt>
+File: ../beta.pdf Graphic file (type pdf)
+<use ../beta.pdf>
+Package pdftex.def Info: ../beta.pdf  used on input line 176.
+(pdftex.def)             Requested size: 231.88997pt x 106.75128pt.
  [3
 
- <../gaussian3D.png> <../beta.png>] 
+ <../gaussian3D.pdf> <../beta.pdf>] 
 AED: lastpage setting LastPage
 [4
 
@@ -1688,18 +1688,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 32128 strings out of 481239
- 592998 string characters out of 5920377
+ 32127 strings out of 481239
+ 593090 string characters out of 5920377
  1294621 words of memory out of 5000000
  46624 multiletter control sequences out of 15000+600000
  662777 words of font info for 144 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,11n,77p,853b,1649s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/xcharter/xch_q7u3cc.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/xcharter/xch_uy5hgr.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/xcharter/XCharter-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/xcharter/XCharter-Italic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/xcharter/XCharter-Roman.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on "/workspaces/ML_course/assignment 3/report/main.pdf" (4 pages, 458866 bytes).
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/xcharter/xch_q7u3cc.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/xcharter/xch_uy5hgr.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/xcharter/XCharter-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/xcharter/XCharter-Italic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/xcharter/XCharter-Roman.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on "/workspaces/ML_course/assignment 3/report/main.pdf" (4 pages, 449236 bytes).
 PDF statistics:
- 148 PDF objects out of 1000 (max. 8388607)
- 117 compressed objects within 2 object streams
+ 219 PDF objects out of 1000 (max. 8388607)
+ 189 compressed objects within 2 object streams
  18 named destinations out of 1000 (max. 500000)
  34897 words of extra memory for PDF output out of 35830 (max. 10000000)
 
