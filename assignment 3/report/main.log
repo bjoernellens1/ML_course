@@ -1000,4 +1000,590 @@ Package fvextra Warning: csquotes should be loaded after fvextra, to avoid a war
 \c@FV@HighlightLinesStop=\count428
 \FV@LoopCount=\count429
 \FV@NCharsBox=\box55
-\FV@
+\FV@BreakIndent=\dimen261
+\FV@BreakIndentNChars=\count430
+\FV@BreakSymbolSepLeft=\dimen262
+\FV@BreakSymbolSepLeftNChars=\count431
+\FV@BreakSymbolSepRight=\dimen263
+\FV@BreakSymbolSepRightNChars=\count432
+\FV@BreakSymbolIndentLeft=\dimen264
+\FV@BreakSymbolIndentLeftNChars=\count433
+\FV@BreakSymbolIndentRight=\dimen265
+\FV@BreakSymbolIndentRightNChars=\count434
+\c@FancyVerbLineBreakLast=\count435
+\FV@LineBox=\box56
+\FV@LineIndentBox=\box57
+\FV@LineWidth=\dimen266
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count436
+\calc@Bcount=\count437
+\calc@Adimen=\dimen267
+\calc@Bdimen=\dimen268
+\calc@Askip=\skip92
+\calc@Bskip=\skip93
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count438
+\calc@Cskip=\skip94
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/shellesc.sty
+Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
+Package shellesc Info: Unrestricted shell escape enabled on input line 75.
+) (/usr/share/texlive/texmf-dist/tex/latex/ifplatform/ifplatform.sty
+Package: ifplatform 2017/10/13 v0.4a Testing for the operating system
+ (/usr/share/texlive/texmf-dist/tex/generic/catchfile/catchfile.sty
+Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
+ (/usr/share/texlive/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)) (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)
+runsystem(uname -s > "main.w18")...executed.
+
+ (/workspaces/ML_course/assignment 3/report/main.w18)
+runsystem(rm -- "main.w18")...executed.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip95
+\fb@frw=\dimen269
+\fb@frh=\dimen270
+\FrameRule=\dimen271
+\FrameSep=\dimen272
+) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count439
+\float@exts=\toks37
+\float@box=\box58
+\@float@everytoks=\toks38
+\@floatcapt=\box59
+)
+\minted@appexistsfile=\read5
+\minted@bgbox=\box60
+\minted@code=\write5
+\c@minted@FancyVerbLineTemp=\count440
+\c@minted@pygmentizecounter=\count441
+\@float@every@listing=\toks39
+\c@listing=\count442
+)
+runsystem(mkdir -p _minted-main)...executed.
+
+ (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks40
+\pgfutil@tempdima=\dimen273
+\pgfutil@tempdimb=\dimen274
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box61
+ (/usr/share/texlive/texmf-dist/tex/latex/ms/everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2020/01/08 v3.1.5b (3.1.5b)
+))
+Package: pgf 2020/01/08 v3.1.5b (3.1.5b)
+ (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2020/01/08 v3.1.5b (3.1.5b)
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks41
+\pgfkeys@temptoks=\toks42
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
+\pgfkeys@tmptoks=\toks43
+))
+\pgf@x=\dimen275
+\pgf@y=\dimen276
+\pgf@xa=\dimen277
+\pgf@ya=\dimen278
+\pgf@xb=\dimen279
+\pgf@yb=\dimen280
+\pgf@xc=\dimen281
+\pgf@yc=\dimen282
+\pgf@xd=\dimen283
+\pgf@yd=\dimen284
+\w@pgf@writea=\write6
+\r@pgf@reada=\read6
+\c@pgf@counta=\count443
+\c@pgf@countb=\count444
+\c@pgf@countc=\count445
+\c@pgf@countd=\count446
+\t@pgf@toka=\toks44
+\t@pgf@tokb=\toks45
+\t@pgf@tokc=\toks46
+\pgf@sys@id@count=\count447
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2020/01/08 v3.1.5b (3.1.5b)
+)
+Driver file for pgf: pgfsys-pdftex.def
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2020/01/08 v3.1.5b (3.1.5b)
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2020/01/08 v3.1.5b (3.1.5b)
+))) (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfsyssoftpath@smallbuffer@items=\count448
+\pgfsyssoftpath@bigbuffer@items=\count449
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2020/01/08 v3.1.5b (3.1.5b)
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen285
+\pgfmath@count=\count450
+\pgfmath@box=\box62
+\pgfmath@toks=\toks47
+\pgfmath@stack@operand=\toks48
+\pgfmath@stack@operation=\toks49
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex))) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count451
+)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@picminx=\dimen286
+\pgf@picmaxx=\dimen287
+\pgf@picminy=\dimen288
+\pgf@picmaxy=\dimen289
+\pgf@pathminx=\dimen290
+\pgf@pathmaxx=\dimen291
+\pgf@pathminy=\dimen292
+\pgf@pathmaxy=\dimen293
+\pgf@xx=\dimen294
+\pgf@xy=\dimen295
+\pgf@yx=\dimen296
+\pgf@yy=\dimen297
+\pgf@zx=\dimen298
+\pgf@zy=\dimen299
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@path@lastx=\dimen300
+\pgf@path@lasty=\dimen301
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@shorten@end@additional=\dimen302
+\pgf@shorten@start@additional=\dimen303
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfpic=\box63
+\pgf@hbox=\box64
+\pgf@layerbox@main=\box65
+\pgf@picture@serial@count=\count452
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgflinewidth=\dimen304
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@pt@x=\dimen305
+\pgf@pt@y=\dimen306
+\pgf@pt@temp=\dimen307
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfarrowsep=\dimen308
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@max=\dimen309
+\pgf@sys@shading@range@num=\count453
+\pgf@shadingcount=\count454
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfexternal@startupbox=\box66
+)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+))) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfnodeparttextbox=\box67
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+) (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@nodesepstart=\dimen310
+\pgf@nodesepend=\dimen311
+) (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2020/01/08 v3.1.5b (3.1.5b)
+)))
+LaTeX Font Info:    Trying to load font information for T1+XCharter-TLF on input line 23.
+ (/usr/share/texlive/texmf-dist/tex/latex/xcharter/T1XCharter-TLF.fd
+File: T1XCharter-TLF.fd 2017/06/25 (autoinst) Font definitions for T1/XCharter-TLF.
+)
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
+(Font)              scaled to size 10.95pt on input line 23.
+Package csquotes Info: Checking for multilingual support...
+Package csquotes Info: ... found 'babel' package.
+runsystem(which pygmentize && touch main.aex)...executed.
+
+runsystem(rm main.aex)...executed.
+
+ (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
+File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count455
+\l__pdf_internal_box=\box68
+) (/workspaces/ML_course/assignment 3/report/main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 23.
+LaTeX Font Info:    Trying to load font information for T2A+cmr on input line 23.
+ (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmr.fd
+File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+)
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 23.
+LaTeX Font Info:    Trying to load font information for LY1+ptm on input line 23.
+ (/usr/share/texlive/texmf-dist/tex/latex/ly1/ly1ptm.fd
+File: ly1ptm.fd 2001/02/01 font definitions for LY1/ptm using Berry names.
+)
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Info: Redefining \microtypecontext on input line 23.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `basictext'.
+LaTeX Info: Redefining \showhyphens on input line 23.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+ (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-bch.cfg
+File: mt-bch.cfg 2007/03/03 v1.5 microtype config. file: Bitstream Charter (RS)
+) (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count456
+\scratchdimen=\dimen312
+\scratchbox=\box69
+\nofMPsegments=\count457
+\nofMParguments=\count458
+\everyMPshowfont=\toks50
+\MPscratchCnt=\count459
+\MPscratchDim=\dimen313
+\MPnumerator=\count460
+\makeMPintoPDFobject=\count461
+\everyMPtoPDFconversion=\toks51
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+Package lastpage Info: Please have a look at the pageslts package at
+(lastpage)             https://www.ctan.org/pkg/pageslts
+(lastpage)             ! on input line 23.
+\c@lstlisting=\count462
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: includehead includefoot 
+* h-part:(L,W,R)=(56.9055pt, 483.69687pt, 56.9055pt)
+* v-part:(T,H,B)=(28.45274pt, 773.91498pt, 42.67912pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=483.69687pt
+* \textheight=706.91498pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-43.81725pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=4.0pt
+* \marginparsep=10.0pt
+* \columnsep=19.91692pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumntrue
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+\c@mv@tabular=\count463
+\c@mv@boldtabular=\count464
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2019/12/01 v3.14 biblatex localization (PK/MW)
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+Package biblatex Info: Input encoding 'utf8' specified.
+Package biblatex Info: Data encoding 'utf8' specified.
+(biblatex)             No need to reencode data.
+\openout3 = `main-blx.bib'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'main.bbl' found.
+ (/workspaces/ML_course/assignment 3/report/main.bbl)
+Package biblatex Info: Reference section=0 on input line 23.
+Package biblatex Info: Reference segment=0 on input line 23.
+ ABD: EveryShipout initializing macros
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 25.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
+File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `phv' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
+(Font)              scaled to size 12.0pt on input line 25.
+ (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msa on input line 25.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 25.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
+(Font)              scaled to size 8.0pt on input line 25.
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
+(Font)              scaled to size 10.95pt on input line 25.
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
+(Font)              scaled to size 9.0pt on input line 25.
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--25
+
+ []
+
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/sc' will be
+(Font)              scaled to size 10.95pt on input line 33.
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
+(Font)              scaled to size 32.60931pt on input line 33.
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
+(Font)              scaled to size 47.95464pt on input line 33.
+Package lettrine.sty Info: Targeted height = 32.60931pt
+(lettrine.sty)             (no accent, loversize=0),
+(lettrine.sty)             Lettrine height = 32.60916pt (\color {MULSmoke}{T});
+(lettrine.sty)             reported on input line 33.
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
+(Font)              scaled to size 10.95pt on input line 33.
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
+(Font)              scaled to size 14.4pt on input line 35.
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
+(Font)              scaled to size 14.4pt on input line 35.
+\openout5 = `main.pyg'.
+
+(/workspaces/ML_course/assignment 3/report/_minted-main/default-pyg-prefix.pygstyle) (/workspaces/ML_course/assignment 3/report/_minted-main/friendly.pygstyle) (/workspaces/ML_course/assignment 3/report/_minted-main/CAE2D07D8890A849EE242777B075BA1E4FBEEAFC55D0059826E664B9BBCF3721.pygtex
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+)
+\openout5 = `main.pyg'.
+
+ (/workspaces/ML_course/assignment 3/report/_minted-main/7FD15AC7B5FDEA75EF84389C6E48BCF84FBEEAFC55D0059826E664B9BBCF3721.pygtex)
+\openout5 = `main.pyg'.
+
+ (/workspaces/ML_course/assignment 3/report/_minted-main/D8497ABDC7471F08F6E9A3F54430B8AE4FBEEAFC55D0059826E664B9BBCF3721.pygtex)
+Underfull \hbox (badness 1412) in paragraph at lines 36--39
+\T1/XCharter-TLF/m/n/10.95 (+20) that pro-vides the out-line for two sub-classes
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--39
+[] \T1/XCharter-TLF/m/n/10.95 (+20) and [].
+ []
+
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
+(Font)              scaled to size 12.0pt on input line 41.
+\openout5 = `main.pyg'.
+
+(/workspaces/ML_course/assignment 3/report/_minted-main/59182B729FA5D708AB44B6E23A2071A04FBEEAFC55D0059826E664B9BBCF3721.pygtex)
+\openout4 = `main.pyg'.
+
+ (/workspaces/ML_course/assignment 3/report/_minted-main/4DB396990FFBE715952310C03B2873CE647D85F724EF33AE0F0927E0BD8F09F9.pygtex
+
+LaTeX Font Warning: Font shape `T1/cmtt/bx/n' in size <9> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 2.
+
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmtt' (encoding: TS1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+)
+\openout5 = `main.pyg'.
+
+ (/workspaces/ML_course/assignment 3/report/_minted-main/90AC8BA993E086C35A4F4586454E0E4B4FBEEAFC55D0059826E664B9BBCF3721.pygtex)
+\openout4 = `main.pyg'.
+
+ (/workspaces/ML_course/assignment 3/report/_minted-main/384CEFF36AC8CE6812A62C7C6EEB3984647D85F724EF33AE0F0927E0BD8F09F9.pygtex)
+\openout4 = `main.pyg'.
+
+ (/workspaces/ML_course/assignment 3/report/_minted-main/47C364121D7DCE265AFFE2FA9FED1BAC647D85F724EF33AE0F0927E0BD8F09F9.pygtex
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
+(Font)              scaled to size 6.0pt on input line 6.
+) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+]
+\openout4 = `main.pyg'.
+
+ (/workspaces/ML_course/assignment 3/report/_minted-main/4A4B488CBF3CE7D749274C91B97019A3647D85F724EF33AE0F0927E0BD8F09F9.pygtex)
+\openout5 = `main.pyg'.
+
+ (/workspaces/ML_course/assignment 3/report/_minted-main/49A6957C6E2E1C5CE89CDE8898949AE15BD9CFCE54A68914ACB2DCF71641ADB0.pygtex)
+\openout5 = `main.pyg'.
+
+ (/workspaces/ML_course/assignment 3/report/_minted-main/9B779599DA63ADBF953BEB561D6D65EA5BD9CFCE54A68914ACB2DCF71641ADB0.pygtex)
+\openout5 = `main.pyg'.
+
+ (/workspaces/ML_course/assignment 3/report/_minted-main/F93A5E3EE6E4853C9849E0F58023CB525BD9CFCE54A68914ACB2DCF71641ADB0.pygtex)
+\openout4 = `main.pyg'.
+
+ (/workspaces/ML_course/assignment 3/report/_minted-main/613986A06A023CF9A4A7E6C5CFD0F016647D85F724EF33AE0F0927E0BD8F09F9.pygtex)
+
+LaTeX Warning: Reference `fig:1' on page 2 undefined on input line 98.
+
+\openout4 = `main.pyg'.
+
+(/workspaces/ML_course/assignment 3/report/_minted-main/AD5A401177C2DD0EADB7E0990B346933647D85F724EF33AE0F0927E0BD8F09F9.pygtex)
+\openout4 = `main.pyg'.
+
+ (/workspaces/ML_course/assignment 3/report/_minted-main/67552110F149019B915F6C5C55EFF017647D85F724EF33AE0F0927E0BD8F09F9.pygtex)
+LaTeX Font Info:    Trying to load font information for TS1+XCharter-TLF on input line 118.
+ (/usr/share/texlive/texmf-dist/tex/latex/xcharter/TS1XCharter-TLF.fd
+File: TS1XCharter-TLF.fd 2017/06/25 (autoinst) Font definitions for TS1/XCharter-TLF.
+)
+LaTeX Font Info:    Font shape `TS1/XCharter-TLF/m/n' will be
+(Font)              scaled to size 10.95pt on input line 118.
+Package microtype Info: Character `textlbrackdbl ' is missing
+(microtype)             in font `TS1/XCharter-TLF/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textrbrackdbl ' is missing
+(microtype)             in font `TS1/XCharter-TLF/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `texttildelow ' is missing
+(microtype)             in font `TS1/XCharter-TLF/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+\openout5 = `main.pyg'.
+
+ (/workspaces/ML_course/assignment 3/report/_minted-main/1A511ACAEDFE5A5E442FC8C9528DFA3B4FBEEAFC55D0059826E664B9BBCF3721.pygtex)
+\openout5 = `main.pyg'.
+
+ (/workspaces/ML_course/assignment 3/report/_minted-main/579C274CEC9B21C18E6E1C49F96AD8704FBEEAFC55D0059826E664B9BBCF3721.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
+[]\T1/XCharter-TLF/m/n/10.95 (+20) Dot prod-uct of ma-tri-ces a and b -
+ []
+
+\openout5 = `main.pyg'.
+
+(/workspaces/ML_course/assignment 3/report/_minted-main/9B00D2D4E551F179043A0A219DC8450B4FBEEAFC55D0059826E664B9BBCF3721.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 120--121
+[]\T1/XCharter-TLF/m/n/10.95 (+20) Power p of ma-trix D -
+ []
+
+\openout5 = `main.pyg'.
+
+(/workspaces/ML_course/assignment 3/report/_minted-main/1EEA2206CA3600EBD0FBD98C8F02FC7A4FBEEAFC55D0059826E664B9BBCF3721.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 121--122
+[]\T1/XCharter-TLF/m/n/10.95 (+20) Determinant of ma-trix E -
+ []
+
+\openout5 = `main.pyg'.
+
+(/workspaces/ML_course/assignment 3/report/_minted-main/3D6B359A5662538F85DE52F9B397B6284FBEEAFC55D0059826E664B9BBCF3721.pygtex)
+\openout5 = `main.pyg'.
+
+ (/workspaces/ML_course/assignment 3/report/_minted-main/B7B07D49AE6487F8EA24366856EBF4114FBEEAFC55D0059826E664B9BBCF3721.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 123--124
+[]\T1/XCharter-TLF/m/n/10.95 (+20) Pseudoinverse of ma-trix G -
+ []
+
+\openout5 = `main.pyg'.
+
+(/workspaces/ML_course/assignment 3/report/_minted-main/02E7C8AB2F3187C2D6CEC16AE339ED884FBEEAFC55D0059826E664B9BBCF3721.pygtex)
+\openout4 = `main.pyg'.
+
+ (/workspaces/ML_course/assignment 3/report/_minted-main/AB5E9DF67E0C875A37F797FCB984215B647D85F724EF33AE0F0927E0BD8F09F9.pygtex
+Overfull \hbox (334.9716pt too wide) in paragraph at lines 6--6
+[]\T1/cmtt/m/n/9 "https://cps.unileoben.ac.at/wp/DALL%C2%B7E-2023-02-09-17.32.48-robot-hand-communicating-with-sign-language.png"[]|  
+ []
+
+)
+
+LaTeX Warning: Reference `fig:2' on page 2 undefined on input line 162.
+
+
+LaTeX Warning: Reference `fig:3' on page 2 undefined on input line 162.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+Make it at least 13.59999pt.
+We now make it that large for the rest of the document.
+This may cause the page layout to be inconsistent, however.
+
+[2] [3
+
+] 
+AED: lastpage setting LastPage
+[4
+
+
+] (/workspaces/ML_course/assignment 3/report/main.aux)
+
+LaTeX Warning: There were undefined references.
+
+runsystem(rm main.pyg)...executed.
+
+Package logreq Info: Writing requests to 'main.run.xml'.
+\openout1 = `main.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 28809 strings out of 481239
+ 543060 string characters out of 5920377
+ 1218909 words of memory out of 5000000
+ 43377 multiletter control sequences out of 15000+600000
+ 644485 words of font info for 143 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 60i,11n,60p,853b,1596s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/xcharter/xch_q7u3cc.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/xcharter/xch_uy5hgr.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/xcharter/XCharter-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/xcharter/XCharter-Italic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/xcharter/XCharter-Roman.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfit0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on "/workspaces/ML_course/assignment 3/report/main.pdf" (4 pages, 270649 bytes).
+PDF statistics:
+ 69 PDF objects out of 1000 (max. 8388607)
+ 52 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 29197 words of extra memory for PDF output out of 29859 (max. 10000000)
+
