@@ -159,8 +159,7 @@ Next, a class \mintinline{python}{BetaDistribution} shouldbe inherited from the 
 \end{itemize}
 
 Again, there is a module in the \mintinline{python}{scipy} package that does the hard work here \mintinline{python}{beta}.
-The constructor of \mintinline{python}{BetaDistribu
-} then looks like this:
+The constructor of \mintinline{python}{BetaDistribution} then looks like this:
 
 \begin{minted}{python3}
     class BetaDistribution(ContinuousDistribution):
@@ -179,6 +178,20 @@ Provided is a plot showing the end results in \autoref{fig:1}.
     \caption{Plot of three different Beta Distributions.}
     \label{fig:1}
 \end{figure}
+
+\section{Part IV - Bonus Exercise}
+We were provided with a fictional card game with the aim to better understand the Bayes' Rule. A deck of four known cards is shuffled, a card is chosen until the deck is empty. To solve this, missing functions need to be filled.
+Those functions are:
+
+\begin{itemize}
+    \item \mintinline{python}{update_probabilities}
+    \item \mintinline{python}{get_posterior}
+    \item \mintinline{python}{get_likelihood}
+    \item \mintinline{python}{get_marginal_likelihood}
+\end{itemize}
+
+
+I tried to solve the exercise but in the end I ran out of time. Still, I think I was close. The code will be attached in the appendix. Here I will try to explain my functions. The function \mintinline{python}{update_probabilities} is just there to call the \mintinline{python}{get_posterior} function. The function \mintinline{python}{get_posterior} returns the posterior, based on the likelyhood, the prior and the marginal likelyhood. Likewise, \mintinline{python}{get_likelihood} returns the likelyhood of drawing a certain card (red or black) given the color of the drawn card. Last but not least \mintinline{python}{get_marginal_likelihood} returns the marginal likelyhood of drawing a certain card (red or black) given the color of the drawn card.
 
 \clearpage
 
@@ -223,6 +236,18 @@ frame=single,
 numbersep=5pt,
 xleftmargin=0pt,
 ]{python3}{include/BetaDistribution.py}
+
+\subsection*{Code for Part IV}
+\inputminted[%
+breakanywhere=true,
+breaklines,
+mathescape,
+linenos,
+numbersep=5pt,
+frame=single,
+numbersep=5pt,
+xleftmargin=0pt,
+]{python3}{include/bonus.py}
 
 \newpage
 

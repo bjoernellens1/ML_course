@@ -1,0 +1,127 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k+kn}{import} \PYG{n+nn}{random}
+
+\PYG{k}{class} \PYG{n+nc}{CardDeck}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+        \PYG{c+c1}{\PYGZsh{} Initialize the deck of cards}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{cards} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}R\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}R\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}B\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}B\PYGZsq{}}\PYG{p}{]}
+        \PYG{c+c1}{\PYGZsh{} Shuffle the deck of cards}
+        \PYG{n}{random}\PYG{o}{.}\PYG{n}{shuffle}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{cards}\PYG{p}{)}
+        \PYG{c+c1}{\PYGZsh{} Initialize the prior probability}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{prior\PYGZus{}red} \PYG{o}{=} \PYG{l+m+mf}{0.5}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{likelihood} \PYG{o}{=} \PYG{l+m+mf}{0.5}
+
+
+    \PYG{k}{def} \PYG{n+nf}{draw\PYGZus{}card}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{index}\PYG{p}{):}
+\PYG{+w}{        }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{        Draw a card from the deck}
+\PYG{l+s+sd}{        :param index: the index of the card to be drawn}
+\PYG{l+s+sd}{        :return: the card and its color}
+\PYG{l+s+sd}{        \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+        \PYG{n}{card} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{cards}\PYG{o}{.}\PYG{n}{pop}\PYG{p}{(}\PYG{n}{index}\PYG{p}{)}
+        \PYG{n}{color} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}Red\PYGZsq{}} \PYG{k}{if} \PYG{n}{card} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}R\PYGZsq{}} \PYG{k}{else} \PYG{l+s+s1}{\PYGZsq{}Black\PYGZsq{}}
+        \PYG{k}{return} \PYG{p}{(}\PYG{n}{card}\PYG{p}{,} \PYG{n}{color}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf}{get\PYGZus{}card\PYGZus{}color}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{index}\PYG{p}{):}
+\PYG{+w}{        }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{        Get the color of a card}
+\PYG{l+s+sd}{        :return: the color of the card}
+\PYG{l+s+sd}{        \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+        \PYG{n}{card} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{cards}\PYG{p}{[}\PYG{n}{index}\PYG{p}{]}
+        \PYG{n}{color} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}Red\PYGZsq{}} \PYG{k}{if} \PYG{n}{card} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}R\PYGZsq{}} \PYG{k}{else} \PYG{l+s+s1}{\PYGZsq{}Black\PYGZsq{}}
+        \PYG{k}{return} \PYG{n}{color}
+
+    \PYG{k}{def} \PYG{n+nf}{get\PYGZus{}remainder}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+\PYG{+w}{        }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{        Get the remainder deck}
+\PYG{l+s+sd}{        :return: the remainder deck}
+\PYG{l+s+sd}{        \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{cards}
+
+\PYG{+w}{    }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{    Update the prior probability based on Bayes\PYGZsq{} rule}
+\PYG{l+s+sd}{    function name: update\PYGZus{}probabilities}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{def} \PYG{n+nf}{update\PYGZus{}probabilities}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{card\PYGZus{}color}\PYG{p}{):}
+\PYG{+w}{        }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{        Update the prior probability based on Bayes\PYGZsq{} rule}
+\PYG{l+s+sd}{        :param card\PYGZus{}color: the color of the card drawn}
+\PYG{l+s+sd}{        \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+        \PYG{k}{if} \PYG{n}{card\PYGZus{}color} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}Red\PYGZsq{}}\PYG{p}{:}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{prior\PYGZus{}red} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{get\PYGZus{}posterior}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Red\PYGZsq{}}\PYG{p}{)}
+        \PYG{k}{elif} \PYG{n}{card\PYGZus{}color} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}Black\PYGZsq{}}\PYG{p}{:}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{prior\PYGZus{}red} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{get\PYGZus{}posterior}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Black\PYGZsq{}}\PYG{p}{)}
+
+\PYG{+w}{    }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{    Calculate the posterior probability based on the prior probability, likelihood, and marginal likelihood}
+\PYG{l+s+sd}{    function name: get\PYGZus{}posterior}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{def} \PYG{n+nf}{get\PYGZus{}posterior}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{card\PYGZus{}color}\PYG{p}{):}
+\PYG{+w}{        }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{        Calculate the posterior probability based on the prior probability, likelihood, and marginal likelihood}
+\PYG{l+s+sd}{        :param card\PYGZus{}color: the color of the card drawn}
+\PYG{l+s+sd}{        :return: the posterior probability of drawing a red card or a black card}
+\PYG{l+s+sd}{        \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+        \PYG{n}{likelihood} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{get\PYGZus{}likelihood}\PYG{p}{(}\PYG{n}{card\PYGZus{}color}\PYG{p}{)}
+        \PYG{n}{marginal\PYGZus{}likelihood} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{get\PYGZus{}marginal\PYGZus{}likelihood}\PYG{p}{(}\PYG{n}{card\PYGZus{}color}\PYG{p}{)}
+        \PYG{n}{posterior} \PYG{o}{=} \PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{prior\PYGZus{}red} \PYG{o}{*} \PYG{n}{likelihood}\PYG{p}{)} \PYG{o}{/} \PYG{n}{marginal\PYGZus{}likelihood}
+        \PYG{k}{return} \PYG{n}{posterior}
+
+    \PYG{k}{def} \PYG{n+nf}{get\PYGZus{}likelihood}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{card\PYGZus{}color}\PYG{p}{):}
+\PYG{+w}{        }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{        Calculate the likelihood of drawing a certain card (red or black) given the color of the card already drawn}
+\PYG{l+s+sd}{        :param card\PYGZus{}color: the color of the card drawn}
+\PYG{l+s+sd}{        :return: the likelihood of drawing a certain card (red or black) given the color of the card already drawn}
+\PYG{l+s+sd}{        \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+        \PYG{k}{if} \PYG{n}{card\PYGZus{}color} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}Red\PYGZsq{}}\PYG{p}{:}
+            \PYG{n}{num\PYGZus{}red\PYGZus{}cards} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{cards}\PYG{o}{.}\PYG{n}{count}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}R\PYGZsq{}}\PYG{p}{)}
+            \PYG{n}{num\PYGZus{}cards} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{cards}\PYG{p}{)}
+            \PYG{k}{return} \PYG{n}{num\PYGZus{}red\PYGZus{}cards} \PYG{o}{/} \PYG{n}{num\PYGZus{}cards}
+        \PYG{k}{elif} \PYG{n}{card\PYGZus{}color} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}Black\PYGZsq{}}\PYG{p}{:}
+            \PYG{n}{num\PYGZus{}black\PYGZus{}cards} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{cards}\PYG{o}{.}\PYG{n}{count}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}B\PYGZsq{}}\PYG{p}{)}
+            \PYG{n}{num\PYGZus{}cards} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{cards}\PYG{p}{)}
+            \PYG{k}{return} \PYG{n}{num\PYGZus{}black\PYGZus{}cards} \PYG{o}{/} \PYG{n}{num\PYGZus{}cards}
+
+    \PYG{k}{def} \PYG{n+nf}{get\PYGZus{}marginal\PYGZus{}likelihood}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{card\PYGZus{}color}\PYG{p}{):}
+\PYG{+w}{        }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{        Calculate the marginal likelihood of drawing a certain card (red or black) regardless of the color of the card already drawn}
+\PYG{l+s+sd}{        :param card\PYGZus{}color: the color of the card drawn}
+\PYG{l+s+sd}{        :return: the marginal likelihood of drawing a certain card (red or black) regardless of the color of the card already drawn}
+\PYG{l+s+sd}{        \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+        \PYG{k}{if} \PYG{n}{card\PYGZus{}color} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}Red\PYGZsq{}}\PYG{p}{:}
+            \PYG{n}{num\PYGZus{}red\PYGZus{}cards} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{cards}\PYG{o}{.}\PYG{n}{count}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}R\PYGZsq{}}\PYG{p}{)}
+            \PYG{n}{num\PYGZus{}black\PYGZus{}cards} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{cards}\PYG{o}{.}\PYG{n}{count}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}B\PYGZsq{}}\PYG{p}{)}
+            \PYG{k}{return} \PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{prior\PYGZus{}red} \PYG{o}{*} \PYG{n}{num\PYGZus{}red\PYGZus{}cards} \PYG{o}{/} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{cards}\PYG{p}{))} \PYG{o}{+} \PYG{p}{((}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{prior\PYGZus{}red}\PYG{p}{)} \PYG{o}{*} \PYG{n}{num\PYGZus{}black\PYGZus{}cards} \PYG{o}{/} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{cards}\PYG{p}{))}
+        \PYG{k}{elif} \PYG{n}{card\PYGZus{}color} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}Black\PYGZsq{}}\PYG{p}{:}
+            \PYG{n}{num\PYGZus{}red\PYGZus{}cards} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{cards}\PYG{o}{.}\PYG{n}{count}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}R\PYGZsq{}}\PYG{p}{)}
+            \PYG{n}{num\PYGZus{}black\PYGZus{}cards} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{cards}\PYG{o}{.}\PYG{n}{count}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}B\PYGZsq{}}\PYG{p}{)}
+            \PYG{k}{return} \PYG{p}{((}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{prior\PYGZus{}red}\PYG{p}{)} \PYG{o}{*} \PYG{n}{num\PYGZus{}red\PYGZus{}cards} \PYG{o}{/} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{cards}\PYG{p}{))} \PYG{o}{+} \PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{prior\PYGZus{}red} \PYG{o}{*} \PYG{n}{num\PYGZus{}black\PYGZus{}cards} \PYG{o}{/} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{cards}\PYG{p}{))}
+
+
+    \PYG{k}{def} \PYG{n+nf}{play\PYGZus{}game}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+        \PYG{k}{while} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{cards}\PYG{p}{:}
+            \PYG{k}{for} \PYG{n}{i}\PYG{p}{,} \PYG{n}{card} \PYG{o+ow}{in} \PYG{n+nb}{enumerate}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{cards}\PYG{p}{):}
+                \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{i}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{: Unknown\PYGZsq{}}\PYG{p}{)}
+             \PYG{c+c1}{\PYGZsh{} only one card left}
+            \PYG{k}{if} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{cards}\PYG{p}{)} \PYG{o}{==} \PYG{l+m+mi}{1}\PYG{p}{:}
+                \PYG{c+c1}{\PYGZsh{} code missing here}
+                \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{cards}\PYG{o}{.}\PYG{n}{pop}\PYG{p}{()}
+            \PYG{k}{else}\PYG{p}{:}
+                \PYG{n}{index} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Remainder deck: }\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{get\PYGZus{}remainder}\PYG{p}{()}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{Enter the index of the card you want to draw:\PYGZdq{}}\PYG{p}{))}
+                \PYG{n}{card}\PYG{p}{,} \PYG{n}{color} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{draw\PYGZus{}card}\PYG{p}{(}\PYG{n}{index}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}
+                \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}You drew a }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{color}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{ card with value }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{card}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+
+                \PYG{c+c1}{\PYGZsh{} Calculate the likelihood and marginal likelihood based on the color of the drawn card}
+                \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{get\PYGZus{}likelihood}\PYG{p}{(}\PYG{n}{color}\PYG{p}{)}
+                \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{get\PYGZus{}marginal\PYGZus{}likelihood}\PYG{p}{(}\PYG{n}{color}\PYG{p}{)}
+
+            \PYG{c+c1}{\PYGZsh{} Update the prior probability based on Bayes\PYGZsq{} rule}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{update\PYGZus{}probabilities}\PYG{p}{(}\PYG{n}{color}\PYG{p}{)}
+            \PYG{n}{posterior\PYGZus{}red} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{get\PYGZus{}posterior}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Red\PYGZsq{}}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} you must calculate this value}
+            \PYG{n}{posterior\PYGZus{}black} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{get\PYGZus{}posterior}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Black\PYGZsq{}}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} you must calculate this value}
+            \PYG{c+c1}{\PYGZsh{} Print the posterior probabilities}
+            \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}After drawing a }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{card}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ card:\PYGZdq{}}\PYG{p}{)}
+            \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}The probability that the other card is red: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{posterior\PYGZus{}red}\PYG{l+s+si}{:}\PYG{l+s+s2}{.2f}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+            \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}The probability that the other card is black: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{posterior\PYGZus{}black}\PYG{l+s+si}{:}\PYG{l+s+s2}{.2f}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}The deck is empty.\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}
