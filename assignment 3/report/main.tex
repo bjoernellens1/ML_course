@@ -1,0 +1,217 @@
+\documentclass{CPSReport}
+
+\setminted[python3]{breaklines, framesep=2mm, fontsize=\footnotesize, numbersep=5pt}
+\usemintedstyle{friendly}
+
+%----------------------------------------------------------------------------------------
+%	AUTHOR / TITLE INFORMATION
+%----------------------------------------------------------------------------------------
+\title{Assignment II: Statistics and Plotting + Digital Image Processing} % The article title
+
+\author{
+	\coursetitle{Introduction to Machine Learning Lab (190.013), SS2023}
+	\authorstyle{Björn Ellensohn\textsuperscript{1}} % Authors
+	\newline\newline % Space before institutions
+	\textsuperscript{1}\textit{m01435615}, \textit{bjoern.ellensohn@stud.unileoben.ac.at}, \institution{Montanuniversität Leoben, Austria}\\ % Institution 1
+	\submissiondate{\today} % Add a date here
+}
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle % Print the title
+
+\thispagestyle{firstpage} % Apply the page style for the first page (no headers and footers)
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+\lettrineabstract{This document guides through the process of solving Assignment 3.}
+
+\section{Introduction}
+The Task of 3rd assignment was coming up with an abstract class called \mintinline{python}{ContinuousDistribution} that provides the outline for two subclasses \mintinline{python}{GaussDistribution} and \mintinline{python}{BetaDistribution}.
+Again, provided was a .csv file with a dataset.
+The assignment is divided into three main parts and the bonus part.
+
+\section{Part I - Abstract Class}
+\subsection{Preparation}
+Provided .csv file needs to be imported into Python somehow. There is a library called csv dealing with this job. Sadly, the data object created by the \mintinline{python}{csv} library does not properly recognize the formatting of the .csv file. Hence, there is some reformatting applied afterwards.
+The data is saved into a data list.
+
+\begin{minted}{python3}
+    with open('data.csv', newline='') as f:
+    reader = csv.reader(f)
+    data = []
+    for row in reader:
+      data.append(', '.join(row))
+\end{minted}
+
+\subsection{Defining Statistics class}
+The class \mintinline{python}{BasicStastistics} is created that provides some functions to analyze the dataset. Not all of it is shown here.
+
+\begin{minted}{python3}
+import math
+
+class BasicStatistics:
+    def __init__(self, data):
+        self.data = data
+    
+    def mean(self):
+        n = len(self.data)
+        total = sum(float(x) for x in self.data)
+        return total/n
+\end{minted}
+
+To apply the statistical methods, the BasicStatistics class must be initialized with the dataset. Then the functions can be called as usual.
+\begin{minted}{python3}
+    bs = BasicStatistics(data)
+    print("Mean:", bs.mean())
+    print("Median:", bs.median())
+    print("Variance:", bs.variance())
+    print("Standard deviation:", bs.standard_deviation())
+    print("Normalized data:", bs.normalize())
+\end{minted}
+
+\subsection{Plotting}
+The most difficult passage of the first part was plotting the data. Using pyplot, you can use subplots to include several plots into a single figure and align them to your liking. But especially the alignment was kind of frustrating. At last, I ended up with a quite nice result which can be rather informative.
+However, before plotting, the dataset had to be normalized and included into a new BasicStastistics-object.
+
+\begin{minted}{python3}
+    normalized_data = bs.normalize()
+    norm = BasicStatistics(normalized_data)
+\end{minted}
+
+Subplot 1 should the original dataset displayed as a histogram, overlaid with the mean, median and standard deviation. For subplot 2 and 3, the comparison of the data points between the original dataset and the normalized dataset should be emphasized.
+That said, arranging the plot took place. Here, \mintinline{Python}{211}, \mintinline{Python}{223}, and \mintinline{Python}{224} indicate the position of the subplots in the 2 by 2 grid.
+
+\begin{minted}{python3}
+    fig = plt.subplots(nrows=2, ncols=2, figsize=(20, 15))
+    ax1 = plt.subplot(211)
+    ax2 = plt.subplot(223)
+    ax3 = plt.subplot(224)
+\end{minted}
+
+The end result can be seen Figure~\ref{fig:1}.
+
+\section{Part II - Fun with Matrices}
+The second part allowed using Numpy as a little helper for doing matrix calculus.
+
+Numpy is a powerful tool for playing with matrices, already providing many operations in the library which comes in handy.
+For example, creating a matrix goes as follows:
+\begin{minted}{python3}
+    matrix = np.random.rand(10, 50)
+\end{minted}
+
+This returns a matrix consisting of random numbers with the dimensions 10 x 50.
+Then the matrix object already provides several matrix manipulations as part of their attributes.
+For instance, calling the shape of the matrix looks like this:
+\begin{minted}{python3}
+    matrix.shape
+\end{minted}
+
+The rest of the assignment was solved using the already implemented functions. Here I provide a list of them:
+\begin{itemize}
+    \item Shape of a matrix - \mintinline{python}{matrix.shape}
+    \item Dot product of matrices a and b - \mintinline{python}{np.dot(a, b)}
+    \item Power p of matrix D - \mintinline{python}{np.linalg.matrix_power(D, p)}
+    \item Determinant of matrix E - \mintinline{python}{np.linalg.det(E)}
+    \item Inverse of matrix F - \mintinline{python}{np.linalg.inv(F)}
+    \item Pseudoinverse of matrix G - \mintinline{python}{np.linalg.pinv(G)}
+    \item Eigenvalues and Eigenvectors of matrix H - \mintinline{python}{np.linalg.eig(H)}  
+\end{itemize}
+
+In the appendix you will find the full code.
+
+\section{Part III - Bonus Part}
+In the last section I will describe the bonus point assignment. I chose the image processing one. To start we got an unsolved Jupyter notebook which guides through the task. The aim was to apply some image processing algorithms to an image of a robot hand.
+
+At first, I replaced the image uploading part by including an import function for calling the image by its URL:
+
+\begin{minted}{python3}
+    # Get Image:
+    from urllib.request import urlopen
+
+    # URL of the image to download
+    url = "https://cps.unileoben.ac.at/wp/DALL%C2%B7E-2023-02-09-17.32.48-robot-hand-communicating-with-sign-language.png"
+    # Download the image and open it with Pillow
+    with urlopen(url) as response:
+        image = Image.open(response)
+
+    # Save image as file
+    image.save("hand.png")
+\end{minted}
+
+Although the notebook included instructions for every part, all the functions in the assignment where just empty, so they had to be filled with the appropriate code.
+The first function should return the filtered image, taking the kernel and the raw image as arguments. The steps this function has to caluclate are as follows:
+\begin{itemize}
+    \item Calculate offset for kernel
+    \item Create zero-filled array for output
+    \item Iterate over all pixel coordinates to extract kernel-sized sub-image from input image and perform element-wise multiplication between sub-image and kernel, and sum up the results
+    \item Also clipping is needed to stay inside the maximum values of 255
+    \item Finally storing those values in an array
+\end{itemize}
+
+The second function implemented a way of calling function 1, providing the parameters and returning the converted output from function 1.
+
+The main function initializes the Laplacian and the Gaussian kernel as transformation matrices.
+
+In the end, the Gaussian and the Laplacian processing where demonstrated. The Gaussian can be seen in Figure~\ref{fig:2} and the Laplacian in Figure~\ref{fig:3}.
+\clearpage
+
+\onecolumn
+\section*{APPENDIX}\label{sec:appendix}
+
+Ladies and Gentlemen, here I introduce the code. And figures.
+\newline Questions to: bjoern.ellensohn@stud.unileoben.ac.at
+
+% \subsection*{Code for Part I}
+% \inputminted{python3}{code_example2a.py}
+
+% \subsection*{Code for Part II}
+% \inputminted{python3}{code_example2b.py}
+
+% \subsection*{Code for Bonus Points}
+% \inputminted{python3}{code_example_bonus.py}
+% \newpage
+
+\subsubsection*{Figures}
+
+% \begin{figure}[ht]
+%     \begin{center}
+%         \includegraphics[width=.9\textwidth]{plots.png}
+%     \end{center}
+%     \caption{Three plots showing the capability of \mintinline{Python}{BasicStastistics}.}
+%     \label{fig:1}
+% \end{figure}
+
+% \begin{figure}[ht]
+%     \begin{center}
+%         \includegraphics[width=.3\textwidth]{gaussian.png}
+%     \end{center}
+%     \caption{Applied Gaussian processing}
+%     \label{fig:2}
+% \end{figure}
+
+% \begin{figure}[ht]
+%     \begin{center}
+%         \includegraphics[width=.3\textwidth]{laplacian.png}
+%     \end{center}
+%     \caption{Applied Laplacian processing}
+%     \label{fig:3}
+% \end{figure}
+
+% \begin{figure}[ht]
+%     \begin{center}
+%         \includegraphics[width=.3\textwidth]{hand.png}
+%     \end{center}
+%     \caption{Raw Image}
+%     \label{fig:4}
+% \end{figure}
+
+%----------------------------------------------------------------------------------------
+\thispagestyle{lastpage}
+\end{document}
