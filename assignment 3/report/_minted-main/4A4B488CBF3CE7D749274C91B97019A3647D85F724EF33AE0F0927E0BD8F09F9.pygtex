@@ -1,4 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-    \PYG{n}{normalized\PYGZus{}data} \PYG{o}{=} \PYG{n}{bs}\PYG{o}{.}\PYG{n}{normalize}\PYG{p}{()}
-    \PYG{n}{norm} \PYG{o}{=} \PYG{n}{BasicStatistics}\PYG{p}{(}\PYG{n}{normalized\PYGZus{}data}\PYG{p}{)}
-\end{Verbatim}

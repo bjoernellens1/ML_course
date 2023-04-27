@@ -202,3 +202,6 @@
 \usepackage{minted}
 \usepackage{pgf}
 \usepackage{float}
+
+\usepackage{amsmath}
+\usepackage[hidelinks]{hyperref}
