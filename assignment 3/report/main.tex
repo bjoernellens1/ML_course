@@ -6,7 +6,7 @@
 %----------------------------------------------------------------------------------------
 %	AUTHOR / TITLE INFORMATION
 %----------------------------------------------------------------------------------------
-\title{Assignment II: Statistics and Plotting + Digital Image Processing} % The article title
+\title{Assignment III: Probability Theory} % The article title
 
 \author{
 	\coursetitle{Introduction to Machine Learning Lab (190.013), SS2023}
@@ -106,7 +106,8 @@ In mathematical terms this is explained in \autoref{eq:1}.
     f(x)=\frac{1}{\sigma \sqrt{2\pi } } e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})²}
 \end{equation}
 
-To sample from a multivariate Gaussian distribution, I will use a module called \mintinline{python}{multivariate_normal} from the \mintinline{python}{scipy} package.
+For sampling from the Gaussian Distribution, a Box-Muller Transform could be used (Keng, 2015).
+But for simplicity, I will use a module called \mintinline{python}{multivariate_normal} from the \mintinline{python}{scipy} package.
 
 The constructor of \mintinline{python}{GaussianDistribution} then looks like this:
 
@@ -181,56 +182,53 @@ Provided is a plot showing the end results in \autoref{fig:1}.
 
 \clearpage
 
+\newpage
 \onecolumn
 \section*{APPENDIX}\label{sec:appendix}
 
-Ladies and Gentlemen, here I introduce the code. And figures.
-\newline Questions to: bjoern.ellensohn@stud.unileoben.ac.at
+This section houses the code.
 
-% \subsection*{Code for Part I}
-% \inputminted{python3}{code_example2a.py}
+\subsection*{Code for Part I}
+\inputminted[%
+breakanywhere=true,
+breaklines,
+mathescape,
+linenos,
+numbersep=5pt,
+frame=single,
+numbersep=5pt,
+xleftmargin=0pt,
+]{python3}{include/ContinuousDistribution.py}
 
-% \subsection*{Code for Part II}
-% \inputminted{python3}{code_example2b.py}
+\subsection*{Code for Part II}
+\inputminted[%
+breakanywhere=true,
+breaklines,
+mathescape,
+linenos,
+numbersep=5pt,
+frame=single,
+numbersep=5pt,
+xleftmargin=0pt,
+]{python3}{include/GaussianDistribution.py}
 
-% \subsection*{Code for Bonus Points}
-% \inputminted{python3}{code_example_bonus.py}
-% \newpage
+\subsection*{Code for Part III}
+\inputminted[%
+breakanywhere=true,
+breaklines,
+mathescape,
+linenos,
+numbersep=5pt,
+frame=single,
+numbersep=5pt,
+xleftmargin=0pt,
+]{python3}{include/BetaDistribution.py}
 
-\subsubsection*{Figures}
+\newpage
 
-% \begin{figure}[ht]
-%     \begin{center}
-%         \includegraphics[width=.9\textwidth]{plots.pdf}
-%     \end{center}
-%     \caption{Three plots showing the capability of \mintinline{Python}{BasicStastistics}.}
-%     \label{fig:1}
-% \end{figure}
+\subsubsection*{Bibliography}
 
-% \begin{figure}[ht]
-%     \begin{center}
-%         \includegraphics[width=.3\textwidth]{gaussian.pdf}
-%     \end{center}
-%     \caption{Applied Gaussian processing}
-%     \label{fig:2}
-% \end{figure}
+Keng, Brian. “Sampling from a Normal Distribution | Bounded Rationality.” Sampling from a Normal Distribution, November 28, 2015. https://bjlkeng.github.io/posts/sampling-from-a-normal-distribution/.
 
-% \begin{figure}[ht]
-%     \begin{center}
-%         \includegraphics[width=.3\textwidth]{laplacian.pdf}
-%     \end{center}
-%     \caption{Applied Laplacian processing}
-%     \label{fig:3}
-% \end{figure}
-
-% \begin{figure}[ht]
-%     \begin{center}
-%         \includegraphics[width=.3\textwidth]{hand.pdf}
-%     \end{center}
-%     \caption{Raw Image}
-%     \label{fig:4}
-% \end{figure}
-
-%----------------------------------------------------------------------------------------
 \thispagestyle{lastpage}
 \end{document}
