@@ -1,0 +1,73 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{class} \PYG{n+nc}{RidgeRegression}\PYG{p}{(}\PYG{n}{Predictor}\PYG{p}{):}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{dataset}\PYG{p}{,} \PYG{n}{alpha}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{):}
+        \PYG{n+nb}{super}\PYG{p}{()}\PYG{o}{.}\PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n}{dataset}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} this command initializes the parent class (Predictor) and passes the dataset.}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{alpha} \PYG{o}{=} \PYG{n}{alpha}
+    
+    \PYG{k}{def} \PYG{n+nf}{regression\PYGZus{}raw}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+\PYG{+w}{        }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{        Fits a ridge regression model on the training data using the specified regularization parameter alpha.}
+\PYG{l+s+sd}{        Using raw dataset}
+\PYG{l+s+sd}{        \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+        \PYG{n}{X\PYGZus{}train} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{X\PYGZus{}train\PYGZus{}raw}
+        \PYG{n}{X\PYGZus{}test} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{X\PYGZus{}test\PYGZus{}raw}
+        \PYG{n}{y\PYGZus{}train} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{y\PYGZus{}train\PYGZus{}raw}
+        \PYG{n}{y\PYGZus{}test} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{y\PYGZus{}test\PYGZus{}raw}
+        \PYG{n}{alpha} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{alpha}
+        
+        \PYG{c+c1}{\PYGZsh{} Add a cloumn of 1s to the training data to have the correct dimension.}
+        \PYG{n}{X\PYGZus{}train} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{hstack}\PYG{p}{([}\PYG{n}{np}\PYG{o}{.}\PYG{n}{ones}\PYG{p}{((}\PYG{n}{X\PYGZus{}train}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{l+m+mi}{1}\PYG{p}{)),} \PYG{n}{X\PYGZus{}train}\PYG{p}{])}
+
+        \PYG{n}{n\PYGZus{}features} \PYG{o}{=} \PYG{n}{X\PYGZus{}train}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}
+        \PYG{n}{I} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{eye}\PYG{p}{(}\PYG{n}{n\PYGZus{}features}\PYG{p}{)}
+        \PYG{n}{w} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linalg}\PYG{o}{.}\PYG{n}{inv}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{o}{.}\PYG{n}{T}\PYG{o}{.}\PYG{n}{dot}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{p}{)} \PYG{o}{+} \PYG{n}{alpha} \PYG{o}{*} \PYG{n}{I}\PYG{p}{)}\PYG{o}{.}\PYG{n}{dot}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{o}{.}\PYG{n}{T}\PYG{p}{)}\PYG{o}{.}\PYG{n}{dot}\PYG{p}{(}\PYG{n}{y\PYGZus{}train}\PYG{p}{)}
+
+        \PYG{c+c1}{\PYGZsh{}X\PYGZus{}test = (X\PYGZus{}test \PYGZhy{} X.mean()) / X.std() \PYGZsh{}this should not be needed, since the normalization is happening in the constructor}
+        \PYG{n}{X\PYGZus{}test} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{hstack}\PYG{p}{([}\PYG{n}{np}\PYG{o}{.}\PYG{n}{ones}\PYG{p}{((}\PYG{n}{X\PYGZus{}test}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{l+m+mi}{1}\PYG{p}{)),} \PYG{n}{X\PYGZus{}test}\PYG{p}{])}
+        \PYG{n}{y\PYGZus{}pred} \PYG{o}{=} \PYG{n}{X\PYGZus{}test}\PYG{o}{.}\PYG{n}{dot}\PYG{p}{(}\PYG{n}{w}\PYG{p}{)}
+
+        \PYG{c+c1}{\PYGZsh{} calculate the mean squared error}
+        \PYG{n}{mse} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{((}\PYG{n}{y\PYGZus{}test} \PYG{o}{\PYGZhy{}} \PYG{n}{y\PYGZus{}pred}\PYG{p}{)}\PYG{o}{**}\PYG{l+m+mi}{2}\PYG{p}{)}
+        \PYG{n}{r\PYGZus{}squared} \PYG{o}{=} \PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{((}\PYG{n}{y\PYGZus{}test} \PYG{o}{\PYGZhy{}} \PYG{n}{y\PYGZus{}pred}\PYG{p}{)}\PYG{o}{**}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{/} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{((}\PYG{n}{y\PYGZus{}test} \PYG{o}{\PYGZhy{}} \PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{y\PYGZus{}test}\PYG{p}{))}\PYG{o}{**}\PYG{l+m+mi}{2}\PYG{p}{))}
+
+        \PYG{c+c1}{\PYGZsh{} calculate root mean squared error (RMSE)}
+        \PYG{n}{rmse} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{mse}\PYG{p}{)}
+
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Predicted target value:\PYGZdq{}}\PYG{p}{,} \PYG{n}{y\PYGZus{}pred}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{])}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Mean squared error (MSE):\PYGZdq{}}\PYG{p}{,} \PYG{n}{mse}\PYG{p}{)}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}R\PYGZhy{}squared:\PYGZdq{}}\PYG{p}{,} \PYG{n}{r\PYGZus{}squared}\PYG{p}{)}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Root mean squared error (RMSE):\PYGZdq{}}\PYG{p}{,} \PYG{n}{rmse}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf}{regression\PYGZus{}pp}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+\PYG{+w}{        }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{        Fits a ridge regression model on the training data using the specified regularization parameter alpha.}
+\PYG{l+s+sd}{        Using processed dataset.}
+\PYG{l+s+sd}{        \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+        \PYG{n}{X\PYGZus{}train} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{X\PYGZus{}train\PYGZus{}pp}
+        \PYG{n}{X\PYGZus{}test} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{X\PYGZus{}test\PYGZus{}pp}
+        \PYG{n}{y\PYGZus{}train} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{y\PYGZus{}train\PYGZus{}pp}
+        \PYG{n}{y\PYGZus{}test} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{y\PYGZus{}test\PYGZus{}pp}
+        \PYG{n}{alpha} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{alpha}
+        
+        \PYG{c+c1}{\PYGZsh{} Add a cloumn of 1s to the training data to have the correct dimension.}
+        \PYG{n}{X\PYGZus{}train} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{hstack}\PYG{p}{([}\PYG{n}{np}\PYG{o}{.}\PYG{n}{ones}\PYG{p}{((}\PYG{n}{X\PYGZus{}train}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{l+m+mi}{1}\PYG{p}{)),} \PYG{n}{X\PYGZus{}train}\PYG{p}{])}
+
+        \PYG{n}{n\PYGZus{}features} \PYG{o}{=} \PYG{n}{X\PYGZus{}train}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}
+        \PYG{n}{I} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{eye}\PYG{p}{(}\PYG{n}{n\PYGZus{}features}\PYG{p}{)}
+        \PYG{n}{w} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linalg}\PYG{o}{.}\PYG{n}{inv}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{o}{.}\PYG{n}{T}\PYG{o}{.}\PYG{n}{dot}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{p}{)} \PYG{o}{+} \PYG{n}{alpha} \PYG{o}{*} \PYG{n}{I}\PYG{p}{)}\PYG{o}{.}\PYG{n}{dot}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{o}{.}\PYG{n}{T}\PYG{p}{)}\PYG{o}{.}\PYG{n}{dot}\PYG{p}{(}\PYG{n}{y\PYGZus{}train}\PYG{p}{)}
+
+        \PYG{n}{X\PYGZus{}test} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{hstack}\PYG{p}{([}\PYG{n}{np}\PYG{o}{.}\PYG{n}{ones}\PYG{p}{((}\PYG{n}{X\PYGZus{}test}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{l+m+mi}{1}\PYG{p}{)),} \PYG{n}{X\PYGZus{}test}\PYG{p}{])}
+        \PYG{n}{y\PYGZus{}pred} \PYG{o}{=} \PYG{n}{X\PYGZus{}test}\PYG{o}{.}\PYG{n}{dot}\PYG{p}{(}\PYG{n}{w}\PYG{p}{)}
+
+        \PYG{c+c1}{\PYGZsh{} calculate the mean squared error}
+        \PYG{n}{mse} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{((}\PYG{n}{y\PYGZus{}test} \PYG{o}{\PYGZhy{}} \PYG{n}{y\PYGZus{}pred}\PYG{p}{)}\PYG{o}{**}\PYG{l+m+mi}{2}\PYG{p}{)}
+        \PYG{n}{r\PYGZus{}squared} \PYG{o}{=} \PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{((}\PYG{n}{y\PYGZus{}test} \PYG{o}{\PYGZhy{}} \PYG{n}{y\PYGZus{}pred}\PYG{p}{)}\PYG{o}{**}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{/} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{((}\PYG{n}{y\PYGZus{}test} \PYG{o}{\PYGZhy{}} \PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{y\PYGZus{}test}\PYG{p}{))}\PYG{o}{**}\PYG{l+m+mi}{2}\PYG{p}{))}
+
+        \PYG{c+c1}{\PYGZsh{} calculate root mean squared error (RMSE)}
+        \PYG{n}{rmse} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{mse}\PYG{p}{)}
+
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Predicted target value:\PYGZdq{}}\PYG{p}{,} \PYG{n}{y\PYGZus{}pred}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{])}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Mean squared error (MSE):\PYGZdq{}}\PYG{p}{,} \PYG{n}{mse}\PYG{p}{)}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}R\PYGZhy{}squared:\PYGZdq{}}\PYG{p}{,} \PYG{n}{r\PYGZus{}squared}\PYG{p}{)}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Root mean squared error (RMSE):\PYGZdq{}}\PYG{p}{,} \PYG{n}{rmse}\PYG{p}{)}
+\end{Verbatim}

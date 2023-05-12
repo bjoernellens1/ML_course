@@ -1,0 +1,63 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{class} \PYG{n+nc}{Predictor}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{dataset}\PYG{p}{):}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{coefficients} \PYG{o}{=} \PYG{k+kc}{None}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{df} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}csv}\PYG{p}{(}\PYG{n}{dataset}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{df\PYGZus{}pp} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{preprocess}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{df}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{X\PYGZus{}train\PYGZus{}raw}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{X\PYGZus{}test\PYGZus{}raw}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{y\PYGZus{}train\PYGZus{}raw}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{y\PYGZus{}test\PYGZus{}raw} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{train\PYGZus{}test\PYGZus{}split}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{df}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{X\PYGZus{}train\PYGZus{}pp}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{X\PYGZus{}test\PYGZus{}pp}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{y\PYGZus{}train\PYGZus{}pp}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{y\PYGZus{}test\PYGZus{}pp} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{train\PYGZus{}test\PYGZus{}split}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{df\PYGZus{}pp}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf}{preprocess}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{df}\PYG{p}{):}
+        \PYG{c+c1}{\PYGZsh{} It is better to do this after splitting the dataset. \PYGZhy{}\PYGZhy{}\PYGZgt{} need to change that}
+        \PYG{c+c1}{\PYGZsh{} Handle missing values}
+        \PYG{n}{df}\PYG{o}{.}\PYG{n}{replace}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{np}\PYG{o}{.}\PYG{n}{nan}\PYG{p}{,} \PYG{n}{inplace}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
+
+        \PYG{c+c1}{\PYGZsh{} Remove outliers using iqr rule:}
+        \PYG{n}{df\PYGZus{}cleaned} \PYG{o}{=} \PYG{n}{df}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{()}
+        \PYG{k}{for} \PYG{n}{column} \PYG{o+ow}{in} \PYG{n}{df}\PYG{p}{:}
+            \PYG{n}{q1} \PYG{o}{=} \PYG{n}{df}\PYG{p}{[}\PYG{n}{column}\PYG{p}{]}\PYG{o}{.}\PYG{n}{quantile}\PYG{p}{(}\PYG{n}{q}\PYG{o}{=}\PYG{l+m+mf}{0.25}\PYG{p}{)}
+            \PYG{n}{q3} \PYG{o}{=} \PYG{n}{df}\PYG{p}{[}\PYG{n}{column}\PYG{p}{]}\PYG{o}{.}\PYG{n}{quantile}\PYG{p}{(}\PYG{n}{q}\PYG{o}{=}\PYG{l+m+mf}{0.75}\PYG{p}{)}
+            \PYG{n}{med} \PYG{o}{=} \PYG{n}{df}\PYG{p}{[}\PYG{n}{column}\PYG{p}{]}\PYG{o}{.}\PYG{n}{median}\PYG{p}{()}
+
+            \PYG{n}{iqr} \PYG{o}{=} \PYG{n}{q3} \PYG{o}{\PYGZhy{}} \PYG{n}{q1}
+            \PYG{n}{upper\PYGZus{}bound} \PYG{o}{=} \PYG{n}{q3}\PYG{o}{+}\PYG{p}{(}\PYG{l+m+mf}{1.5}\PYG{o}{*}\PYG{n}{iqr}\PYG{p}{)}
+            \PYG{n}{lower\PYGZus{}bound} \PYG{o}{=} \PYG{n}{q1}\PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{l+m+mf}{1.5}\PYG{o}{*}\PYG{n}{iqr}\PYG{p}{)}
+
+            \PYG{n}{df\PYGZus{}cleaned}\PYG{p}{[}\PYG{n}{column}\PYG{p}{][(}\PYG{n}{df}\PYG{p}{[}\PYG{n}{column}\PYG{p}{]} \PYG{o}{\PYGZlt{}=} \PYG{n}{lower\PYGZus{}bound}\PYG{p}{)} \PYG{o}{|} \PYG{p}{(}\PYG{n}{df}\PYG{p}{[}\PYG{n}{column}\PYG{p}{]} \PYG{o}{\PYGZgt{}=} \PYG{n}{upper\PYGZus{}bound}\PYG{p}{)]} \PYG{o}{=} \PYG{n}{df\PYGZus{}cleaned}\PYG{p}{[}\PYG{n}{column}\PYG{p}{]}\PYG{o}{.}\PYG{n}{median}\PYG{p}{()}
+
+        \PYG{c+c1}{\PYGZsh{} Normalize data:}
+        \PYG{n}{df\PYGZus{}normalized} \PYG{o}{=} \PYG{n}{df\PYGZus{}cleaned}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{()}
+        \PYG{k}{for} \PYG{n}{column} \PYG{o+ow}{in} \PYG{n}{df\PYGZus{}cleaned}\PYG{p}{:}
+
+            \PYG{n}{mean} \PYG{o}{=} \PYG{n}{df\PYGZus{}cleaned}\PYG{p}{[}\PYG{n}{column}\PYG{p}{]}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{()}
+            \PYG{n}{std} \PYG{o}{=} \PYG{n}{df\PYGZus{}cleaned}\PYG{p}{[}\PYG{n}{column}\PYG{p}{]}\PYG{o}{.}\PYG{n}{std}\PYG{p}{()}
+
+            \PYG{n}{df\PYGZus{}normalized}\PYG{p}{[}\PYG{n}{column}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{n}{df\PYGZus{}cleaned}\PYG{p}{[}\PYG{n}{column}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{mean}\PYG{p}{)} \PYG{o}{/} \PYG{n}{std}
+        \PYG{n}{df\PYGZus{}processed} \PYG{o}{=} \PYG{n}{df\PYGZus{}normalized}
+        \PYG{k}{return} \PYG{n}{df\PYGZus{}processed}
+
+    \PYG{k}{def} \PYG{n+nf}{train\PYGZus{}test\PYGZus{}split}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{df}\PYG{p}{,} \PYG{n}{test\PYGZus{}size}\PYG{o}{=}\PYG{l+m+mf}{0.2}\PYG{p}{):}
+        \PYG{c+c1}{\PYGZsh{} Shuffle the rows of the dataset randomly}
+        \PYG{n}{df\PYGZus{}randomized} \PYG{o}{=} \PYG{n}{df}\PYG{o}{.}\PYG{n}{sample}\PYG{p}{(}\PYG{n}{frac}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{random\PYGZus{}state}\PYG{o}{=}\PYG{l+m+mi}{42}\PYG{p}{)}\PYG{o}{.}\PYG{n}{reset\PYGZus{}index}\PYG{p}{(}\PYG{n}{drop}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
+
+        \PYG{c+c1}{\PYGZsh{} Extract the features and target variable}
+        \PYG{n}{X} \PYG{o}{=} \PYG{n}{df\PYGZus{}randomized}\PYG{o}{.}\PYG{n}{drop}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}target\PYGZsq{}}\PYG{p}{,} \PYG{n}{axis}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)}
+        \PYG{n}{y} \PYG{o}{=} \PYG{n}{df\PYGZus{}randomized}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}target\PYGZsq{}}\PYG{p}{]}
+
+        \PYG{c+c1}{\PYGZsh{} Split the dataset into training and testing sets}
+        \PYG{n}{split\PYGZus{}ratio} \PYG{o}{=} \PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{test\PYGZus{}size}
+        \PYG{n}{split\PYGZus{}index} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{split\PYGZus{}ratio} \PYG{o}{*} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{df\PYGZus{}randomized}\PYG{p}{))}
+
+        \PYG{n}{X\PYGZus{}train} \PYG{o}{=} \PYG{n}{X}\PYG{p}{[:}\PYG{n}{split\PYGZus{}index}\PYG{p}{]}
+        \PYG{n}{X\PYGZus{}test} \PYG{o}{=} \PYG{n}{X}\PYG{p}{[}\PYG{n}{split\PYGZus{}index}\PYG{p}{:]}
+        \PYG{n}{y\PYGZus{}train} \PYG{o}{=} \PYG{n}{y}\PYG{p}{[:}\PYG{n}{split\PYGZus{}index}\PYG{p}{]}
+        \PYG{n}{y\PYGZus{}test} \PYG{o}{=} \PYG{n}{y}\PYG{p}{[}\PYG{n}{split\PYGZus{}index}\PYG{p}{:]}
+
+        \PYG{k}{return} \PYG{n}{X\PYGZus{}train}\PYG{p}{,} \PYG{n}{X\PYGZus{}test}\PYG{p}{,} \PYG{n}{y\PYGZus{}train}\PYG{p}{,} \PYG{n}{y\PYGZus{}test}
+        
+    \PYG{k}{def} \PYG{n+nf}{fit}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{X}\PYG{p}{,} \PYG{n}{y}\PYG{p}{):}
+        \PYG{k}{pass}
+
+    \PYG{k}{def} \PYG{n+nf}{predict}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{X}\PYG{p}{):}
+        \PYG{k}{pass}
+\end{Verbatim}

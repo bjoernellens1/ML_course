@@ -33,165 +33,92 @@
 \lettrineabstract{This document guides through the process of solving Assignment 3.}
 
 \section{Introduction}
-The Task of 3rd assignment was coming up with an abstract class called \mintinline{python}{ContinuousDistribution} that provides the outline for two subclasses \mintinline{python}{GaussDistribution} and \mintinline{python}{BetaDistribution}.
-Again, provided was a .csv file with a dataset.
-The assignment is divided into three main parts and the bonus part.
+The 4th assignment's task was to implement linear regression models on a provided 'diabetes' dataset.
+the linear regression models had to be implemented from scratch using only numpy and pandas. the models to create where:
+\begin{itemize}
+    \item Least Squares Regression
+    \item Ridge Regression
+    \item Lasso Regression
+\end{itemize}
+
+The laste one was a bonus point task.
+I will walk through the code in 4 Sections.
 
 \section{Part I - Abstract Class}
 \subsection{Preparation}
-When searching online for information on Python's abstract classes, you may come across the module known as \mintinline{python}{ABC}. This module includes a specific decorator, \mintinline{python}{@abstractmethod}, that can be used to define abstract methods. Essentially, this allows you to create a class that serves as a template or blueprint for other classes, without actually implementing the methods. To create a functional child class, you must define and implement the necessary methods there.
+Alongside the 'diabetes.csv' dataset there was also an unfinished Jupyter Notebook provided, which gave an outline on how to solve this task. At the begin, there is an abstract class \mintinline{python}{Predictor}, that should act as a template for the child classes, implementing the actual regression models. However, I decided to extend the metaclass to include the methods that where the same for all child classe. So I only had to write them once. In my oppinion, this is better for the code's structure and enhances readability.
 
 \subsection{Defining the Abstract Class}
-The class \mintinline{python}{ContinuousDistribution} is created that provides the basic outline for the main classes of this exercise. The following functions should be inlcuded:
+The class \mintinline{python}{Predictor} is created that provides the basic outline for the main classes of this exercise. The following functions are inlcuded:
 \begin{itemize}
-    \item Data Import and Export using csv files.
-    \item Computation of the mean based on the samples from the csv.
-    \item Computation of the standard deviation based on the samples from the csv.
-    \item Visualization of the distribution, the raw data or the generated samples.
-    \item Generating/Drawing Samples from the distribution. 
+    \item Reading the csv
+    \item Loading and splitting the data into training and test sets
+    \item Normalizing the data
 \end{itemize}
 
-So in the end, the abstract class \mintinline{python}{ContinuousDistribution} should look like this:
+So the dateset is loaded and will be pre-processed accordingly on initiation of the class. The needed data and paramters are stored as atributes.
 
-\begin{minted}{python3}
-    import abc
+To mention here are the data loading and pre processing methods. For loading the file, pandas does a good already. The pre-processing was trickier to implement. Datasets tend to have several flaws. Amongst them are outliers and missing values.
+Missing data can be found with the pandas DataFrame functions \mintinline{python}{isnan} and \mintinline{python}{isnull}.
+The outliers of the dataset where caught by boxplotting every column. In this case, the "1.5 x IQR rule" came to shine, as this allows to automate the process of finding the outliers for each of the columns.
+The last method is the \mintinline{python}{train_test_split()} method. Here I want to split the dataset into features and targets, as well as dividing the whole dataset into a test set and a train set. This is especially useful for having a refernce for evaluating the performance later.
 
-    class ContinuousDistribution(metaclass=abc.ABCMeta):
-    @abc.abstractmethod
-    def import_data(self, file_path):
-        pass
+\section{Part II - Least Squares Regression}
+In the second part of this exercise, a class \mintinline{python}{LinearRegression(Predictor)} was created to provide the actual implmentation of the linear regression.
 
-    @abc.abstractmethod
-    def export_data(self, data, file_path):
-        pass
+A formula for Least Squares Regression looks like this:
+\mintinline{python}{Y = b0 + b1*X1 + b2*X2 + ... + bn*Xn}, where Y is the response variable, b0 is the y-intercept, bi is the coefficient for predictor variable Xi, and Xi is the ith predictor variable.
 
-    @abc.abstractmethod
-    def compute_mean(self, data):
-        pass
+For evaluation, the predicted data was compared to the test set, so the Mean Squared Error was measured, as well as the R-Squared.
 
-    @abc.abstractmethod
-    def compute_standard_deviation(self, data):
-        pass
-
-    @abc.abstractmethod
-    def visualize(self, data=None):
-        pass
-
-    @abc.abstractmethod
-    def generate_samples(self, n_samples):
-        pass
-\end{minted}
-
-\section{Part II - Plot and Sample Gaussian Distributions}
-In the second part of this exercise, it is required to initiate a child class which is responsible for dealing with Gaussian distributions.
-
-Explicitly, the following should be implemented:
-\begin{itemize}
-    \item Implement the functions defined in “ContinousDistribution”. 
-    \item Implement a constructor that optionally takes the dimension of the multivariate distribution. 
-    \item Implement a visualization for Multivariate Gaussians up to 3 dimensions.
-    \item Find the empirical parameters of the distribution that created the samples in the ‘MGD.csv’ file.
-    \item Plot the samples of the ‘MGD.csv’ file and the sample from the learned distribution in two subfigures.   
-\end{itemize}
-
-So the main goal of this class is to be able to compute the statistical parameters from a provided dataset and being able to sample a new dataset from this distribution. In the end, the datapoints should be plotted.
-
-At first, let us declare how the Gaussian dsitribution is defined.
-For all normal distributions, 68.2\% of the observations will appear within plus or minus one standard deviation of the mean; 95.4\% of the observations will fall within +/- two standard deviations; and 99.7\% within +/- three standard deviations. This fact is sometimes referred to as the "empirical rule," a heuristic that describes where most of the data in a normal distribution will appear.
-This means that data falling outside of three standard deviations ("3-sigma") would signify rare occurrences.
-
-In mathematical terms this is explained in \autoref{eq:1}.
-
-\begin{equation} \label{eq:1}
-    f(x)=\frac{1}{\sigma \sqrt{2\pi } } e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})²}
-\end{equation}
-
-For sampling from the Gaussian Distribution, a Box-Muller Transform could be used (Keng, 2015).
-But for simplicity, I will use a module called \mintinline{python}{multivariate_normal} from the \mintinline{python}{scipy} package.
-
-The constructor of \mintinline{python}{GaussianDistribution} then looks like this:
-
-\begin{minted}{python3}
-
-class GaussDistribution(ContinuousDistribution):
-    def __init__(self, dim=1):
-        self.dim = dim
-        self.mean = np.zeros(dim)
-        self.covariance = np.eye(dim)
-        self.data = pd.DataFrame()
-        self.samples = None
-\end{minted}
-
-\autoref{fig:2} to \autoref{fig:4} are showing the end results.
-In the appendix you will find the full code.
+The results are as follows. For comparison, also the unprocessed dataset was evaluated. We can already see, how bad the unprocessed set performs.
 
 \begin{figure}[ht]
     \begin{center}
-        \includegraphics[width=1\linewidth]{../gaussian1D.pdf}
+        \includegraphics[width=1\linewidth]{pics/Result_Least_Squares.png}
     \end{center}
-    \caption{Plot of one dimensional Gaussian distribution.}
-    \label{fig:2}
+    \caption{Results of Least Squares Regression}
+    \label{fig:res_LS}
 \end{figure}
+
+\section{Part III - Ridge Regression}
+Next, a class \mintinline{python}{RidgeRegression(Predictor)} was made to implement Ridge Regression. Ridge Regression is a regularized linear regression model. The formula looks like this:
 
 \begin{figure}[ht]
     \begin{center}
-        \includegraphics[width=1\linewidth]{../gaussian2D_contour.pdf}
+        \includegraphics[width=1\linewidth]{pics/Formula_Ridge.png}
     \end{center}
-    \caption{Contour plot of two dimensional Gaussian distribution.}
-    \label{fig:3}
+    \caption{Formula of Ridge Regression}
+    \label{fig:form_Ridge}
 \end{figure}
 
+Again, the model was evaluated against the test set. The results are as follows:
 \begin{figure}[ht]
     \begin{center}
-        \includegraphics[width=1\linewidth]{../gaussian3D.pdf}
+        \includegraphics[width=1\linewidth]{pics/Result_Ridge.png}
     \end{center}
-    \caption{Plots of three dimensional Gaussian distribution.}
-    \label{fig:4}
+    \caption{Results of Ridge Regression}
+    \label{fig:res_Ridge}
 \end{figure}
 
-\section{Part III - Plot and Sample Beta Distributions}
-Next, a class \mintinline{python}{BetaDistribution} shouldbe inherited from the meta class. It should implement:
-
-\begin{itemize}
-    \item Generate beta distributed samples and plot the distribution giving the parameters a and b.
-    \item The constructor should take the parameters a and b as arguments.
-    \item A visualization for Beta distributions, including the mean and the standard deviation lines.
-\end{itemize}
-
-Again, there is a module in the \mintinline{python}{scipy} package that does the hard work here \mintinline{python}{beta}.
-The constructor of \mintinline{python}{BetaDistribution} then looks like this:
-
-\begin{minted}{python3}
-    class BetaDistribution(ContinuousDistribution):
-    def __init__(self, a, b):
-        self.a = a
-        self.b = b
-        self.data = None
-\end{minted}
-
-Provided is a plot showing the end results in \autoref{fig:1}.
-
+\section{Part IV - Lasso Regression (Bonus)}
+The Lasso Regression is also a regularized linear regression model. The formula is like this:
 \begin{figure}[ht]
     \begin{center}
-        \includegraphics[width=1\linewidth]{../beta.pdf}
+        \includegraphics[width=1\linewidth]{pics/Formula_Lasso.png}
     \end{center}
-    \caption{Plot of three different Beta Distributions.}
-    \label{fig:1}
+    \caption{Formula of Lasso Regression}
+    \label{fig:form_Lasso}
 \end{figure}
 
-\section{Part IV - Bonus Exercise}
-We were provided with a fictional card game with the aim to better understand the Bayes' Rule. A deck of four known cards is shuffled, a card is chosen until the deck is empty. To solve this, missing functions need to be filled.
-Those functions are:
-
-\begin{itemize}
-    \item \mintinline{python}{update_probabilities}
-    \item \mintinline{python}{get_posterior}
-    \item \mintinline{python}{get_likelihood}
-    \item \mintinline{python}{get_marginal_likelihood}
-\end{itemize}
-
-
-I tried to solve the exercise but in the end I ran out of time. Still, I think I was close. The code will be attached in the appendix. Here I will try to explain my functions. The function \mintinline{python}{update_probabilities} is just there to call the \mintinline{python}{get_posterior} function. The function \mintinline{python}{get_posterior} returns the posterior, based on the likelyhood, the prior and the marginal likelyhood. Likewise, \mintinline{python}{get_likelihood} returns the likelyhood of drawing a certain card (red or black) given the color of the drawn card. Last but not least \mintinline{python}{get_marginal_likelihood} returns the marginal likelyhood of drawing a certain card (red or black) given the color of the drawn card.
+Also, the resulting test perfomance was evaluated.
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=1\linewidth]{pics/Result_Lasso.png}
+    \end{center}
+    \caption{Results of Lasso Regression}
+    \label{fig:res_Lasso}
+\end{figure}
 
 \clearpage
 
@@ -211,7 +138,7 @@ numbersep=5pt,
 frame=single,
 numbersep=5pt,
 xleftmargin=0pt,
-]{python3}{include/ContinuousDistribution.py}
+]{python3}{include/Predictor.py}
 
 \subsection*{Code for Part II}
 \inputminted[%
@@ -223,7 +150,7 @@ numbersep=5pt,
 frame=single,
 numbersep=5pt,
 xleftmargin=0pt,
-]{python3}{include/GaussianDistribution.py}
+]{python3}{include/LeastSquares.py}
 
 \subsection*{Code for Part III}
 \inputminted[%
@@ -235,7 +162,7 @@ numbersep=5pt,
 frame=single,
 numbersep=5pt,
 xleftmargin=0pt,
-]{python3}{include/BetaDistribution.py}
+]{python3}{include/RidgeRegression.py}
 
 \subsection*{Code for Part IV}
 \inputminted[%
@@ -247,13 +174,9 @@ numbersep=5pt,
 frame=single,
 numbersep=5pt,
 xleftmargin=0pt,
-]{python3}{include/bonus.py}
+]{python3}{include/LassoRegression.py}
 
 \newpage
-
-\subsubsection*{Bibliography}
-
-Keng, Brian. “Sampling from a Normal Distribution | Bounded Rationality.” Sampling from a Normal Distribution, November 28, 2015. https://bjlkeng.github.io/posts/sampling-from-a-normal-distribution/.
 
 \thispagestyle{lastpage}
 \end{document}

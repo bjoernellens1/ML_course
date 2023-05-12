@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.4.27)  27 APR 2023 19:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.4.27)  12 MAY 2023 08:17
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/workspaces/ML_course/assignment 3/report/main.tex"
-(/workspaces/ML_course/assignment 3/report/main.tex
+**"/workspaces/ML_course/assignment 4/report/main.tex"
+(/workspaces/ML_course/assignment 4/report/main.tex
 LaTeX2e <2020-02-02> patch level 2
-L3 programming layer <2020-02-14> (/workspaces/ML_course/assignment 3/report/CPSReport.cls
+L3 programming layer <2020-02-14> (/workspaces/ML_course/assignment 4/report/CPSReport.cls
 Document Class: CPSReport 2022/03/31 CPS Student Report Template by Univ.-Prof. Dr. Elmar Rueckert
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
@@ -1040,7 +1040,7 @@ Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 )
 runsystem(uname -s > "main.w18")...executed.
 
- (/workspaces/ML_course/assignment 3/report/main.w18)
+ (/workspaces/ML_course/assignment 4/report/main.w18)
 runsystem(rm -- "main.w18")...executed.
 
 ) (/usr/share/texlive/texmf-dist/tex/latex/framed/framed.sty
@@ -1324,7 +1324,7 @@ runsystem(rm main.aex)...executed.
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count484
 \l__pdf_internal_box=\box68
-) (/workspaces/ML_course/assignment 3/report/main.aux)
+) (/workspaces/ML_course/assignment 4/report/main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
@@ -1448,7 +1448,7 @@ Package biblatex Info: Data encoding 'utf8' specified.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
- (/workspaces/ML_course/assignment 3/report/main.bbl)
+ (/workspaces/ML_course/assignment 4/report/main.bbl)
 Package biblatex Info: Reference section=0 on input line 23.
 Package biblatex Info: Reference segment=0 on input line 23.
  ABD: EveryShipout initializing macros
@@ -1466,7 +1466,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 23.
 LaTeX Info: Redefining \pageref on input line 23.
 LaTeX Info: Redefining \nameref on input line 23.
- (/workspaces/ML_course/assignment 3/report/main.out) (/workspaces/ML_course/assignment 3/report/main.out)
+ (/workspaces/ML_course/assignment 4/report/main.out) (/workspaces/ML_course/assignment 4/report/main.out)
 \@outlinefile=\write7
 \openout7 = `main.out'.
 
@@ -1522,51 +1522,12 @@ LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
 (Font)              scaled to size 14.4pt on input line 35.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
 (Font)              scaled to size 14.4pt on input line 35.
-\openout5 = `main.pyg'.
-
-(/workspaces/ML_course/assignment 3/report/_minted-main/default-pyg-prefix.pygstyle) (/workspaces/ML_course/assignment 3/report/_minted-main/friendly.pygstyle) (/workspaces/ML_course/assignment 3/report/_minted-main/CAE2D07D8890A849EE242777B075BA1E4FBEEAFC55D0059826E664B9BBCF3721.pygtex
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `cmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-)
-\openout5 = `main.pyg'.
-
- (/workspaces/ML_course/assignment 3/report/_minted-main/7FD15AC7B5FDEA75EF84389C6E48BCF84FBEEAFC55D0059826E664B9BBCF3721.pygtex)
-\openout5 = `main.pyg'.
-
- (/workspaces/ML_course/assignment 3/report/_minted-main/D8497ABDC7471F08F6E9A3F54430B8AE4FBEEAFC55D0059826E664B9BBCF3721.pygtex)
-Underfull \hbox (badness 1412) in paragraph at lines 36--39
-\T1/XCharter-TLF/m/n/10.95 (+20) that pro-vides the out-line for two sub-classes
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 36--39
-[] \T1/XCharter-TLF/m/n/10.95 (+20) and [].
- []
-
-LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
-(Font)              scaled to size 12.0pt on input line 41.
-\openout5 = `main.pyg'.
-
-(/workspaces/ML_course/assignment 3/report/_minted-main/6D0B865B7D33C81B43FABAF044A35F764FBEEAFC55D0059826E664B9BBCF3721.pygtex)
-\openout5 = `main.pyg'.
-
- (/workspaces/ML_course/assignment 3/report/_minted-main/7CADAAE336FD8177B1F8857BB8FC4E504FBEEAFC55D0059826E664B9BBCF3721.pygtex
-
-LaTeX Font Warning: Font shape `T1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 2.
-
-)
-\openout5 = `main.pyg'.
-
- (/workspaces/ML_course/assignment 3/report/_minted-main/CAE2D07D8890A849EE242777B075BA1E4FBEEAFC55D0059826E664B9BBCF3721.pygtex)
-LaTeX Font Info:    Trying to load font information for TS1+XCharter-TLF on input line 47.
- (/usr/share/texlive/texmf-dist/tex/latex/xcharter/TS1XCharter-TLF.fd
+LaTeX Font Info:    Trying to load font information for TS1+XCharter-TLF on input line 39.
+(/usr/share/texlive/texmf-dist/tex/latex/xcharter/TS1XCharter-TLF.fd
 File: TS1XCharter-TLF.fd 2017/06/25 (autoinst) Font definitions for TS1/XCharter-TLF.
 )
 LaTeX Font Info:    Font shape `TS1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 47.
+(Font)              scaled to size 10.95pt on input line 39.
 Package microtype Info: Character `textlbrackdbl ' is missing
 (microtype)             in font `TS1/XCharter-TLF/m/n/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -1576,170 +1537,147 @@ Package microtype Info: Character `textrbrackdbl ' is missing
 Package microtype Info: Character `texttildelow ' is missing
 (microtype)             in font `TS1/XCharter-TLF/m/n/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
+(Font)              scaled to size 12.0pt on input line 48.
 \openout5 = `main.pyg'.
 
- (/workspaces/ML_course/assignment 3/report/_minted-main/CAE2D07D8890A849EE242777B075BA1E4FBEEAFC55D0059826E664B9BBCF3721.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 54--55
-[]\T1/XCharter-TLF/m/n/10.95 (+20) So in the end, the ab-stract class
+ (/workspaces/ML_course/assignment 4/report/_minted-main/default-pyg-prefix.pygstyle) (/workspaces/ML_course/assignment 4/report/_minted-main/friendly.pygstyle) (/workspaces/ML_course/assignment 4/report/_minted-main/E328AFECF02ACD93067B90A8CDC489084FBEEAFC55D0059826E664B9BBCF3721.pygtex
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+)
+\openout5 = `main.pyg'.
+
+ (/workspaces/ML_course/assignment 4/report/_minted-main/E328AFECF02ACD93067B90A8CDC489084FBEEAFC55D0059826E664B9BBCF3721.pygtex)
+Underfull \hbox (badness 1199) in paragraph at lines 59--60
+[]\T1/XCharter-TLF/m/n/10.95 (+20) So the date-set is loaded and will be pre-
+ []
+
+\openout5 = `main.pyg'.
+
+(/workspaces/ML_course/assignment 4/report/_minted-main/495533B270FD3CDEB5011BD3A8F460D94FBEEAFC55D0059826E664B9BBCF3721.pygtex)
+\openout5 = `main.pyg'.
+
+ (/workspaces/ML_course/assignment 4/report/_minted-main/C7B71E75E1FD407EE879ADBED729740A4FBEEAFC55D0059826E664B9BBCF3721.pygtex)
+\openout5 = `main.pyg'.
+
+ (/workspaces/ML_course/assignment 4/report/_minted-main/30FFEDCD787AC55D425BADEEBEDC5FAC4FBEEAFC55D0059826E664B9BBCF3721.pygtex)
+\openout5 = `main.pyg'.
+
+ (/workspaces/ML_course/assignment 4/report/_minted-main/CAF86C16163A8F777CE851F43D4D17114FBEEAFC55D0059826E664B9BBCF3721.pygtex)
+Underfull \hbox (badness 1577) in paragraph at lines 67--68
+\T1/XCharter-TLF/m/n/10.95 (+20) In the sec-ond part of this ex-er-cise, a class
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--55
-[] \T1/XCharter-TLF/m/n/10.95 (+20) should look like
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-\openout4 = `main.pyg'.
-
-(/workspaces/ML_course/assignment 3/report/_minted-main/E78A5A61D9D76626D8EC2EC1E0F3C4BF647D85F724EF33AE0F0927E0BD8F09F9.pygtex
-
-LaTeX Font Warning: Font shape `T1/cmtt/bx/n' in size <9> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 2.
-
-
-Overfull \hbox (23.19774pt too wide) in paragraph at lines 4--4
-[]\T1/cmtt/m/n/9 ContinuousDistribution[](metaclass[]=[]abc[].[]ABCMeta):|  
- []
-
-LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 4.
-) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-
-LaTeX Warning: Command \texttwosuperior invalid in math mode on input line 106.
-
-
-LaTeX Warning: Command \texttwosuperior invalid in math mode on input line 106.
-
-Missing character: There is no ² in font cmr8!
 \openout5 = `main.pyg'.
 
-(/workspaces/ML_course/assignment 3/report/_minted-main/0BE60240AACFAFA971381A648701A80F4FBEEAFC55D0059826E664B9BBCF3721.pygtex)
-\openout5 = `main.pyg'.
-
- (/workspaces/ML_course/assignment 3/report/_minted-main/3A548EA1D6AE2732CF52E68A3610A2564FBEEAFC55D0059826E664B9BBCF3721.pygtex)
-\openout5 = `main.pyg'.
-
- (/workspaces/ML_course/assignment 3/report/_minted-main/CEE6CDB12825B1D896F50F69FCC649C84FBEEAFC55D0059826E664B9BBCF3721.pygtex)
-Underfull \hbox (badness 3068) in paragraph at lines 112--113
-[]\T1/XCharter-TLF/m/n/10.95 (+20) The con-struc-tor of []
+ (/workspaces/ML_course/assignment 4/report/_minted-main/0C6D877471E4AC39D40413B561445F834FBEEAFC55D0059826E664B9BBCF3721.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 69--71
+[]\T1/XCharter-TLF/m/n/10.95 (+20) A for-mula for Least Squares
  []
 
-\openout4 = `main.pyg'.
 
-(/workspaces/ML_course/assignment 3/report/_minted-main/717DFED838C7A8F2D555E7D031F87491647D85F724EF33AE0F0927E0BD8F09F9.pygtex)
-<../gaussian1D.pdf, id=55, 814.92253pt x 375.16461pt>
-File: ../gaussian1D.pdf Graphic file (type pdf)
-<use ../gaussian1D.pdf>
-Package pdftex.def Info: ../gaussian1D.pdf  used on input line 130.
-(pdftex.def)             Requested size: 231.88997pt x 106.75128pt.
+Underfull \hbox (badness 10000) in paragraph at lines 69--71
+\T1/XCharter-TLF/m/n/10.95 (+20) Re-gres-sion looks like this:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--71
+[]\T1/XCharter-TLF/m/n/10.95 (+20) ,
+ []
+
+
+Underfull \hbox (badness 1231) in paragraph at lines 69--71
+\T1/XCharter-TLF/m/n/10.95 (+20) where Y is the re-sponse vari-able, b0 is the
+ []
+
+<pics/Result_Least_Squares.png, id=49, 507.8975pt x 518.93875pt>
+File: pics/Result_Least_Squares.png Graphic file (type png)
+<use pics/Result_Least_Squares.png>
+Package pdftex.def Info: pics/Result_Least_Squares.png  used on input line 78.
+(pdftex.def)             Requested size: 231.88997pt x 236.93309pt.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 132.
+(Font)              scaled to size 10.0pt on input line 80.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
-(Font)              scaled to size 10.0pt on input line 132.
+(Font)              scaled to size 10.0pt on input line 80.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
-(Font)              scaled to size 10.0pt on input line 132.
-<../gaussian2D_contour.pdf, id=56, 429.08003pt x 455.36723pt>
-File: ../gaussian2D_contour.pdf Graphic file (type pdf)
-<use ../gaussian2D_contour.pdf>
-Package pdftex.def Info: ../gaussian2D_contour.pdf  used on input line 138.
-(pdftex.def)             Requested size: 231.88997pt x 246.09615pt.
-<../gaussian3D.pdf, id=57, 584.02995pt x 291.72588pt>
-File: ../gaussian3D.pdf Graphic file (type pdf)
-<use ../gaussian3D.pdf>
-Package pdftex.def Info: ../gaussian3D.pdf  used on input line 146.
-(pdftex.def)             Requested size: 231.88997pt x 115.82916pt.
+(Font)              scaled to size 10.0pt on input line 80.
 \openout5 = `main.pyg'.
 
- (/workspaces/ML_course/assignment 3/report/_minted-main/D8497ABDC7471F08F6E9A3F54430B8AE4FBEEAFC55D0059826E664B9BBCF3721.pygtex)
+(/workspaces/ML_course/assignment 4/report/_minted-main/0BD14AABE190EAE4CF0FD40C41ADDCF64FBEEAFC55D0059826E664B9BBCF3721.pygtex)
+<pics/Formula_Ridge.png, id=51, 542.025pt x 85.31876pt>
+File: pics/Formula_Ridge.png Graphic file (type png)
+<use pics/Formula_Ridge.png>
+Package pdftex.def Info: pics/Formula_Ridge.png  used on input line 89.
+(pdftex.def)             Requested size: 231.88997pt x 36.50146pt.
+<pics/Result_Ridge.png, id=52, 491.8375pt x 616.3025pt>
+File: pics/Result_Ridge.png Graphic file (type png)
+<use pics/Result_Ridge.png>
+Package pdftex.def Info: pics/Result_Ridge.png  used on input line 98.
+(pdftex.def)             Requested size: 231.88997pt x 290.5744pt.
+
+Underfull \hbox (badness 2293) in paragraph at lines 104--104
+[]\OT1/phv/b/n/14.4 Part IV - Lasso Re-gres-sion
+ []
+
+<pics/Formula_Lasso.png, id=53, 542.025pt x 85.31876pt>
+File: pics/Formula_Lasso.png Graphic file (type png)
+<use pics/Formula_Lasso.png>
+Package pdftex.def Info: pics/Formula_Lasso.png  used on input line 108.
+(pdftex.def)             Requested size: 231.88997pt x 36.50146pt.
+<pics/Result_Lasso.png, id=54, 491.8375pt x 616.3025pt>
+File: pics/Result_Lasso.png Graphic file (type png)
+<use pics/Result_Lasso.png>
+Package pdftex.def Info: pics/Result_Lasso.png  used on input line 117.
+(pdftex.def)             Requested size: 231.88997pt x 290.5744pt.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
 Make it at least 13.59999pt.
 We now make it that large for the rest of the document.
 This may cause the page layout to be inconsistent, however.
 
-[2 <../gaussian1D.pdf> <../gaussian2D_contour.pdf>]
-\openout5 = `main.pyg'.
+[2 </workspaces/ML_course/assignment 4/report/pics/Result_Least_Squares.png> </workspaces/ML_course/assignment 4/report/pics/Formula_Ridge.png> </workspaces/ML_course/assignment 4/report/pics/Result_Ridge.png> </workspaces/ML_course/assignment 4/report/pics/Formula_Lasso.png>] [3
 
- (/workspaces/ML_course/assignment 3/report/_minted-main/3A548EA1D6AE2732CF52E68A3610A2564FBEEAFC55D0059826E664B9BBCF3721.pygtex)
-\openout5 = `main.pyg'.
+ </workspaces/ML_course/assignment 4/report/pics/Result_Lasso.png>] (/workspaces/ML_course/assignment 4/report/_minted-main/2475174CDA3F91939A18305434740A357F56E3DD5CF19B1CA7D69C06CC2D484B.pygtex
 
- (/workspaces/ML_course/assignment 3/report/_minted-main/F0CF2A92516045024A0C99147B28F05B4FBEEAFC55D0059826E664B9BBCF3721.pygtex)
-\openout5 = `main.pyg'.
+LaTeX Font Warning: Font shape `T1/cmtt/bx/n' in size <9> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 2.
 
- (/workspaces/ML_course/assignment 3/report/_minted-main/D8497ABDC7471F08F6E9A3F54430B8AE4FBEEAFC55D0059826E664B9BBCF3721.pygtex)
-\openout4 = `main.pyg'.
-
- (/workspaces/ML_course/assignment 3/report/_minted-main/B71776FD657BF8CA92432C141F1FAE09647D85F724EF33AE0F0927E0BD8F09F9.pygtex)
-<../beta.pdf, id=119, 814.92253pt x 375.16461pt>
-File: ../beta.pdf Graphic file (type pdf)
-<use ../beta.pdf>
-Package pdftex.def Info: ../beta.pdf  used on input line 176.
-(pdftex.def)             Requested size: 231.88997pt x 106.75128pt.
-\openout5 = `main.pyg'.
-
- (/workspaces/ML_course/assignment 3/report/_minted-main/79F22C9A6CF743940E74D9DDCB09679A4FBEEAFC55D0059826E664B9BBCF3721.pygtex)
-\openout5 = `main.pyg'.
-
- (/workspaces/ML_course/assignment 3/report/_minted-main/6F71A514559287FCD5B55786A0720F1C4FBEEAFC55D0059826E664B9BBCF3721.pygtex)
-\openout5 = `main.pyg'.
-
- (/workspaces/ML_course/assignment 3/report/_minted-main/9771FCB837A1CE4F8C48EF3730DFE0974FBEEAFC55D0059826E664B9BBCF3721.pygtex)
-\openout5 = `main.pyg'.
-
- (/workspaces/ML_course/assignment 3/report/_minted-main/809C6E29C3F01F21E39D133A9ACD19854FBEEAFC55D0059826E664B9BBCF3721.pygtex)
-\openout5 = `main.pyg'.
-
- (/workspaces/ML_course/assignment 3/report/_minted-main/79F22C9A6CF743940E74D9DDCB09679A4FBEEAFC55D0059826E664B9BBCF3721.pygtex)
-\openout5 = `main.pyg'.
-
- (/workspaces/ML_course/assignment 3/report/_minted-main/6F71A514559287FCD5B55786A0720F1C4FBEEAFC55D0059826E664B9BBCF3721.pygtex)
-\openout5 = `main.pyg'.
-
- (/workspaces/ML_course/assignment 3/report/_minted-main/6F71A514559287FCD5B55786A0720F1C4FBEEAFC55D0059826E664B9BBCF3721.pygtex)
-\openout5 = `main.pyg'.
-
- (/workspaces/ML_course/assignment 3/report/_minted-main/9771FCB837A1CE4F8C48EF3730DFE0974FBEEAFC55D0059826E664B9BBCF3721.pygtex)
-\openout5 = `main.pyg'.
-
- (/workspaces/ML_course/assignment 3/report/_minted-main/809C6E29C3F01F21E39D133A9ACD19854FBEEAFC55D0059826E664B9BBCF3721.pygtex)
-Underfull \hbox (badness 1648) in paragraph at lines 194--195
-\T1/XCharter-TLF/m/n/10.95 (+20) The code will be at-tached in the ap-pendix.
- []
-
-[3 <../gaussian3D.pdf> <../beta.pdf>] (/workspaces/ML_course/assignment 3/report/_minted-main/4A68201C51B829FCF44778D78B68916DC1E3DA7F813206FEEC0D000377A5F314.pygtex
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/bx/n' in size <9> not available
 (Font)              Font shape `T1/XCharter-TLF/b/n' tried instead on input line 2.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
 (Font)              scaled to size 9.0pt on input line 2.
-) (/workspaces/ML_course/assignment 3/report/_minted-main/6A1DEE46AE2F970F27828A44ED11A14B1AF26BEC974B0473B798C57B1FC98025.pygtex
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
+(Font)              scaled to size 6.0pt on input line 2.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
-(Font)              scaled to size 9.0pt on input line 19.
- [4
-
-
-]
+(Font)              scaled to size 9.0pt on input line 11.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
+[4
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [5]) (/workspaces/ML_course/assignment 3/report/_minted-main/94538DB7E061C809A9032EB21CD4BAAC3D4FDD05170A4D45F8DDD2E3E71353C7.pygtex [6]) (/workspaces/ML_course/assignment 3/report/_minted-main/08F7AE6F85EB86695551F643C6D7EF0DAD3A6845210E7996B417B9C32A0FD61B.pygtex [7]
+]) (/workspaces/ML_course/assignment 4/report/_minted-main/A732BFAAAD959BB0620185BDEF16FF5429688C0096F2397D692D3326B2B4E947.pygtex [5]) (/workspaces/ML_course/assignment 4/report/_minted-main/39F3160B7B0C21852F0092255745A7E6C9BBCB50E3FF407513AFAD219EEF8344.pygtex [6]) (/workspaces/ML_course/assignment 4/report/_minted-main/4A752C8C0DA052481B7A67E99BABB800C47D2B47E497543605CC2F4D3F9DFA00.pygtex [7]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [8]) [9] 
 AED: lastpage setting LastPage
-[10]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 259.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 259.
- (/workspaces/ML_course/assignment 3/report/main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 259.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 259.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 182.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 182.
+(/workspaces/ML_course/assignment 4/report/main.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 182.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 182.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 510B45FBADC896B3102BC444C88B4D94;463.
+(rerunfilecheck)             Checksum: 3CAE2F8187B1D6C1686C61B480184EB6;443.
 runsystem(rm main.pyg)...executed.
 
 Package logreq Info: Writing requests to 'main.run.xml'.
@@ -1747,18 +1685,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 32418 strings out of 481239
- 602115 string characters out of 5920377
- 1394631 words of memory out of 5000000
- 46847 multiletter control sequences out of 15000+600000
- 678759 words of font info for 162 fonts, out of 8000000 for 9000
+ 32355 strings out of 481239
+ 595660 string characters out of 5920377
+ 1382229 words of memory out of 5000000
+ 46823 multiletter control sequences out of 15000+600000
+ 677501 words of font info for 163 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,11n,77p,894b,1665s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/xcharter/xch_q7u3cc.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/xcharter/xch_uy5hgr.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/xcharter/XCharter-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/xcharter/XCharter-Italic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/xcharter/XCharter-Roman.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfit0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on "/workspaces/ML_course/assignment 3/report/main.pdf" (10 pages, 501154 bytes).
+ 60i,11n,77p,853b,1665s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/xcharter/xch_q7u3cc.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/xcharter/xch_uy5hgr.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/xcharter/XCharter-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/xcharter/XCharter-Italic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/xcharter/XCharter-Roman.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfit0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on "/workspaces/ML_course/assignment 4/report/main.pdf" (9 pages, 443260 bytes).
 PDF statistics:
- 271 PDF objects out of 1000 (max. 8388607)
- 233 compressed objects within 3 object streams
- 29 named destinations out of 1000 (max. 500000)
- 39513 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 164 PDF objects out of 1000 (max. 8388607)
+ 131 compressed objects within 2 object streams
+ 27 named destinations out of 1000 (max. 500000)
+ 38494 words of extra memory for PDF output out of 42996 (max. 10000000)
 

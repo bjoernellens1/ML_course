@@ -1,0 +1,124 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{class} \PYG{n+nc}{LassoRegression}\PYG{p}{(}\PYG{n}{Predictor}\PYG{p}{):}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{dataset}\PYG{p}{,} \PYG{n}{alpha}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{max\PYGZus{}iter}\PYG{o}{=}\PYG{l+m+mi}{1000}\PYG{p}{,} \PYG{n}{tol}\PYG{o}{=}\PYG{l+m+mf}{0.0001}\PYG{p}{):}
+        \PYG{n+nb}{super}\PYG{p}{()}\PYG{o}{.}\PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n}{dataset}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{alpha} \PYG{o}{=} \PYG{n}{alpha}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{max\PYGZus{}iter} \PYG{o}{=} \PYG{n}{max\PYGZus{}iter}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{tol} \PYG{o}{=} \PYG{n}{tol}
+
+    \PYG{k}{def} \PYG{n+nf}{regression\PYGZus{}raw}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+\PYG{+w}{        }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{        Fits a lasso regression model on the training data using the specified regularization parameter alpha, iterations, and tolerance.}
+\PYG{l+s+sd}{        Using raw dataset.}
+\PYG{l+s+sd}{        \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+        \PYG{c+c1}{\PYGZsh{} Define hyperparameters}
+        \PYG{n}{alpha} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{alpha}  \PYG{c+c1}{\PYGZsh{} regularization strength}
+        \PYG{n}{max\PYGZus{}iterations} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{max\PYGZus{}iter}  \PYG{c+c1}{\PYGZsh{} number of gradient descent iterations}
+        \PYG{n}{tolerance} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{tol}
+
+        \PYG{c+c1}{\PYGZsh{} Load the data}
+        \PYG{n}{diabetes} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}csv}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}diabetes.csv\PYGZdq{}}\PYG{p}{)}
+
+        \PYG{n}{diabetes}\PYG{o}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Intercept\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}
+
+        \PYG{n}{train\PYGZus{}size} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{l+m+mf}{0.8} \PYG{o}{*} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{diabetes}\PYG{p}{))}
+        
+        \PYG{n}{X\PYGZus{}train} \PYG{o}{=} \PYG{n}{diabetes}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[:}\PYG{n}{train\PYGZus{}size}\PYG{p}{,} \PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{values}
+        \PYG{n}{y\PYGZus{}train} \PYG{o}{=} \PYG{n}{diabetes}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[:}\PYG{n}{train\PYGZus{}size}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{values}
+        \PYG{n}{X\PYGZus{}test} \PYG{o}{=} \PYG{n}{diabetes}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[}\PYG{n}{train\PYGZus{}size}\PYG{p}{:,} \PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{values}
+        \PYG{n}{y\PYGZus{}test} \PYG{o}{=} \PYG{n}{diabetes}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[}\PYG{n}{train\PYGZus{}size}\PYG{p}{:,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{values}
+
+        \PYG{n}{theta\PYGZus{}lasso} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])}
+        \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{max\PYGZus{}iterations}\PYG{p}{):}
+            \PYG{n}{theta\PYGZus{}prev} \PYG{o}{=} \PYG{n}{theta\PYGZus{}lasso}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{()}
+            \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]):}
+                \PYG{k}{if} \PYG{n}{j} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+                    \PYG{n}{theta\PYGZus{}lasso}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{y\PYGZus{}train}\PYG{p}{)}
+                \PYG{k}{else}\PYG{p}{:}
+                    \PYG{n}{xj} \PYG{o}{=} \PYG{n}{X\PYGZus{}train}\PYG{p}{[:,} \PYG{n}{j}\PYG{p}{]}
+                    \PYG{n}{rj} \PYG{o}{=} \PYG{n}{y\PYGZus{}train} \PYG{o}{\PYGZhy{}} \PYG{n}{X\PYGZus{}train} \PYG{o}{@} \PYG{n}{theta\PYGZus{}lasso} \PYG{o}{+} \PYG{n}{xj} \PYG{o}{*} \PYG{n}{theta\PYGZus{}lasso}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}
+                    \PYG{n}{zj} \PYG{o}{=} \PYG{n}{xj} \PYG{o}{@} \PYG{n}{xj}
+                    \PYG{k}{if} \PYG{n}{zj} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+                        \PYG{n}{theta\PYGZus{}lasso}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{0}
+                    \PYG{k}{else}\PYG{p}{:}
+                        \PYG{k}{if} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{xj} \PYG{o}{*} \PYG{n}{rj}\PYG{p}{)} \PYG{o}{\PYGZgt{}} \PYG{n}{alpha} \PYG{o}{/} \PYG{l+m+mi}{2}\PYG{p}{:}
+                            \PYG{n}{theta\PYGZus{}lasso}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{xj} \PYG{o}{*} \PYG{n}{rj}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{alpha} \PYG{o}{/} \PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{/} \PYG{n}{zj}
+                        \PYG{k}{elif} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{xj} \PYG{o}{*} \PYG{n}{rj}\PYG{p}{)} \PYG{o}{\PYGZlt{}} \PYG{o}{\PYGZhy{}} \PYG{n}{alpha} \PYG{o}{/} \PYG{l+m+mi}{2}\PYG{p}{:}
+                            \PYG{n}{theta\PYGZus{}lasso}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{xj} \PYG{o}{*} \PYG{n}{rj}\PYG{p}{)} \PYG{o}{+} \PYG{n}{alpha} \PYG{o}{/} \PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{/} \PYG{n}{zj}
+                        \PYG{k}{else}\PYG{p}{:}
+                            \PYG{n}{theta\PYGZus{}lasso}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{0}
+            \PYG{k}{if} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{((}\PYG{n}{theta\PYGZus{}lasso} \PYG{o}{\PYGZhy{}} \PYG{n}{theta\PYGZus{}prev}\PYG{p}{)} \PYG{o}{**} \PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{\PYGZlt{}} \PYG{n}{tolerance}\PYG{p}{:}
+                \PYG{k}{break}
+        
+        \PYG{n}{sst} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{((}\PYG{n}{y\PYGZus{}test} \PYG{o}{\PYGZhy{}} \PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{y\PYGZus{}test}\PYG{p}{))} \PYG{o}{**} \PYG{l+m+mi}{2}\PYG{p}{)}
+
+        \PYG{n}{y\PYGZus{}pred\PYGZus{}lasso} \PYG{o}{=} \PYG{n}{X\PYGZus{}test} \PYG{o}{@} \PYG{n}{theta\PYGZus{}lasso}
+        \PYG{n}{mse\PYGZus{}lasso} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{((}\PYG{n}{y\PYGZus{}test} \PYG{o}{\PYGZhy{}} \PYG{n}{y\PYGZus{}pred\PYGZus{}lasso}\PYG{p}{)} \PYG{o}{**} \PYG{l+m+mi}{2}\PYG{p}{)}
+        \PYG{n}{ssr\PYGZus{}lasso} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{((}\PYG{n}{y\PYGZus{}pred\PYGZus{}lasso} \PYG{o}{\PYGZhy{}} \PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{y\PYGZus{}test}\PYG{p}{))} \PYG{o}{**} \PYG{l+m+mi}{2}\PYG{p}{)}
+        \PYG{n}{r\PYGZus{}squared\PYGZus{}lasso} \PYG{o}{=} \PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{p}{(}\PYG{n}{ssr\PYGZus{}lasso} \PYG{o}{/} \PYG{n}{sst}\PYG{p}{)}
+
+        \PYG{n}{rmse\PYGZus{}lasso} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{mse\PYGZus{}lasso}\PYG{p}{)}
+
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Lasso regression:\PYGZdq{}}\PYG{p}{)}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Mean squared error (MSE):\PYGZdq{}}\PYG{p}{,} \PYG{n}{mse\PYGZus{}lasso}\PYG{p}{)}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}R\PYGZhy{}squared:\PYGZdq{}}\PYG{p}{,} \PYG{n}{r\PYGZus{}squared\PYGZus{}lasso}\PYG{p}{)}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Root mean sqaured error (RMSE):\PYGZdq{}}\PYG{p}{,} \PYG{n}{rmse\PYGZus{}lasso}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf}{regression\PYGZus{}pp}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+\PYG{+w}{        }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{        Fits a lasso regression model on the training data using the specified regularization parameter alpha, iterations, and tolerance.}
+\PYG{l+s+sd}{        Using processed dataset.}
+\PYG{l+s+sd}{        \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+        \PYG{c+c1}{\PYGZsh{} Define hyperparameters}
+        \PYG{n}{alpha} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{alpha}  \PYG{c+c1}{\PYGZsh{} regularization strength}
+        \PYG{n}{max\PYGZus{}iterations} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{max\PYGZus{}iter}  \PYG{c+c1}{\PYGZsh{} number of gradient descent iterations}
+        \PYG{n}{tolerance} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{tol}
+
+        \PYG{c+c1}{\PYGZsh{} Load the data}
+        \PYG{n}{diabetes\PYGZus{}norm} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}csv}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}diabetes\PYGZus{}norm.csv\PYGZdq{}}\PYG{p}{)}
+
+        \PYG{n}{diabetes\PYGZus{}norm}\PYG{o}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Intercept\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}
+
+        \PYG{n}{train\PYGZus{}size} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{l+m+mf}{0.8} \PYG{o}{*} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{diabetes\PYGZus{}norm}\PYG{p}{))}
+
+        \PYG{n}{X\PYGZus{}train} \PYG{o}{=} \PYG{n}{diabetes\PYGZus{}norm}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[:}\PYG{n}{train\PYGZus{}size}\PYG{p}{,} \PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{values}
+        \PYG{n}{y\PYGZus{}train} \PYG{o}{=} \PYG{n}{diabetes\PYGZus{}norm}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[:}\PYG{n}{train\PYGZus{}size}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{values}
+        \PYG{n}{X\PYGZus{}test} \PYG{o}{=} \PYG{n}{diabetes\PYGZus{}norm}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[}\PYG{n}{train\PYGZus{}size}\PYG{p}{:,} \PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{values}
+        \PYG{n}{y\PYGZus{}test} \PYG{o}{=} \PYG{n}{diabetes\PYGZus{}norm}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[}\PYG{n}{train\PYGZus{}size}\PYG{p}{:,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{values}
+
+        \PYG{n}{theta\PYGZus{}lasso} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])}
+        \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{max\PYGZus{}iterations}\PYG{p}{):}
+            \PYG{n}{theta\PYGZus{}prev} \PYG{o}{=} \PYG{n}{theta\PYGZus{}lasso}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{()}
+            \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]):}
+                \PYG{k}{if} \PYG{n}{j} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+                    \PYG{n}{theta\PYGZus{}lasso}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{y\PYGZus{}train}\PYG{p}{)}
+                \PYG{k}{else}\PYG{p}{:}
+                    \PYG{n}{xj} \PYG{o}{=} \PYG{n}{X\PYGZus{}train}\PYG{p}{[:,} \PYG{n}{j}\PYG{p}{]}
+                    \PYG{n}{rj} \PYG{o}{=} \PYG{n}{y\PYGZus{}train} \PYG{o}{\PYGZhy{}} \PYG{n}{X\PYGZus{}train} \PYG{o}{@} \PYG{n}{theta\PYGZus{}lasso} \PYG{o}{+} \PYG{n}{xj} \PYG{o}{*} \PYG{n}{theta\PYGZus{}lasso}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}
+                    \PYG{n}{zj} \PYG{o}{=} \PYG{n}{xj} \PYG{o}{@} \PYG{n}{xj}
+                    \PYG{k}{if} \PYG{n}{zj} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+                        \PYG{n}{theta\PYGZus{}lasso}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{0}
+                    \PYG{k}{else}\PYG{p}{:}
+                        \PYG{k}{if} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{xj} \PYG{o}{*} \PYG{n}{rj}\PYG{p}{)} \PYG{o}{\PYGZgt{}} \PYG{n}{alpha} \PYG{o}{/} \PYG{l+m+mi}{2}\PYG{p}{:}
+                            \PYG{n}{theta\PYGZus{}lasso}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{xj} \PYG{o}{*} \PYG{n}{rj}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{alpha} \PYG{o}{/} \PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{/} \PYG{n}{zj}
+                        \PYG{k}{elif} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{xj} \PYG{o}{*} \PYG{n}{rj}\PYG{p}{)} \PYG{o}{\PYGZlt{}} \PYG{o}{\PYGZhy{}} \PYG{n}{alpha} \PYG{o}{/} \PYG{l+m+mi}{2}\PYG{p}{:}
+                            \PYG{n}{theta\PYGZus{}lasso}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{xj} \PYG{o}{*} \PYG{n}{rj}\PYG{p}{)} \PYG{o}{+} \PYG{n}{alpha} \PYG{o}{/} \PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{/} \PYG{n}{zj}
+                        \PYG{k}{else}\PYG{p}{:}
+                            \PYG{n}{theta\PYGZus{}lasso}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{0}
+            \PYG{k}{if} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{((}\PYG{n}{theta\PYGZus{}lasso} \PYG{o}{\PYGZhy{}} \PYG{n}{theta\PYGZus{}prev}\PYG{p}{)} \PYG{o}{**} \PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{\PYGZlt{}} \PYG{n}{tolerance}\PYG{p}{:}
+                \PYG{k}{break}
+        
+        \PYG{n}{sst} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{((}\PYG{n}{y\PYGZus{}test} \PYG{o}{\PYGZhy{}} \PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{y\PYGZus{}test}\PYG{p}{))} \PYG{o}{**} \PYG{l+m+mi}{2}\PYG{p}{)}
+
+        \PYG{n}{y\PYGZus{}pred\PYGZus{}lasso} \PYG{o}{=} \PYG{n}{X\PYGZus{}test} \PYG{o}{@} \PYG{n}{theta\PYGZus{}lasso}
+        \PYG{n}{mse\PYGZus{}lasso} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{((}\PYG{n}{y\PYGZus{}test} \PYG{o}{\PYGZhy{}} \PYG{n}{y\PYGZus{}pred\PYGZus{}lasso}\PYG{p}{)} \PYG{o}{**} \PYG{l+m+mi}{2}\PYG{p}{)}
+        \PYG{n}{ssr\PYGZus{}lasso} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{((}\PYG{n}{y\PYGZus{}pred\PYGZus{}lasso} \PYG{o}{\PYGZhy{}} \PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{y\PYGZus{}test}\PYG{p}{))} \PYG{o}{**} \PYG{l+m+mi}{2}\PYG{p}{)}
+        \PYG{n}{r\PYGZus{}squared\PYGZus{}lasso} \PYG{o}{=} \PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{p}{(}\PYG{n}{ssr\PYGZus{}lasso} \PYG{o}{/} \PYG{n}{sst}\PYG{p}{)}
+
+        \PYG{n}{rmse\PYGZus{}lasso} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{mse\PYGZus{}lasso}\PYG{p}{)}
+
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Lasso regression:\PYGZdq{}}\PYG{p}{)}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Mean squared error (MSE):\PYGZdq{}}\PYG{p}{,} \PYG{n}{mse\PYGZus{}lasso}\PYG{p}{)}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}R\PYGZhy{}squared:\PYGZdq{}}\PYG{p}{,} \PYG{n}{r\PYGZus{}squared\PYGZus{}lasso}\PYG{p}{)}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Root mean sqaured error (RMSE):\PYGZdq{}}\PYG{p}{,} \PYG{n}{rmse\PYGZus{}lasso}\PYG{p}{)}
+\end{Verbatim}

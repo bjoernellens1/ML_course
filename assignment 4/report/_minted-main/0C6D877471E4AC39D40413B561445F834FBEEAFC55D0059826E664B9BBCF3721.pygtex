@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{Y} \PYG{o}{=} \PYG{n}{b0} \PYG{o}{+} \PYG{n}{b1}\PYG{o}{*}\PYG{n}{X1} \PYG{o}{+} \PYG{n}{b2}\PYG{o}{*}\PYG{n}{X2} \PYG{o}{+} \PYG{o}{...} \PYG{o}{+} \PYG{n}{bn}\PYG{o}{*}\PYG{n}{Xn}
+\end{Verbatim}
